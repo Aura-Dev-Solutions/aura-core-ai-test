@@ -1,14 +1,14 @@
-# Python Engineer Technical Assessment
+# Python engineer technical assessment
 
 ## Overview
-Design and implement a Scalable Document Analysis System that leverages AI to process, analyze, and extract insights from large collections of documents while maintaining high performance and reliability.
+Design and implement a Scalable Document Analysis System (pipeline) that leverages AI to process, analyze, and extract insights from large collections of documents while maintaining high performance and reliability.
 
 ## Project Requirements
 
 ### Core System Requirements
 
 1. Create a document processing service that can:
-   - Handle multiple document formats (PDF, DOCX, TXT)
+   - Handle multiple document formats (PDF, DOCX, JSON)
    - Process documents in parallel
    - Extract text and maintain document structure
    - Generate document embeddings
@@ -67,12 +67,11 @@ Your solution will be evaluated based on:
 ## Deliverables
 
 1. **Source Code**
-   - Complete source code with documentation
+   - Complete source code with documentation (github repository, you can fork this or branch)
    - Setup instructions
 
 2. **Documentation**
    - System architecture diagram
-   - API documentation
    - Model selection justification
    - Performance analysis
    - Scaling considerations
@@ -111,3 +110,5 @@ Your solution will be evaluated based on:
 - Document known limitations and potential improvements
 - Focus on demonstrating your problem-solving approach
 - Create a clear path for scaling the solution
+
+### Very important: you can request information about the test and communicate via email to otorres@auraresearch.ai or oscar@auraresearch.ai to resolve doubts and discuss technical proposals. Communication and way of working will be evaluated. Not all points are indispensable, but a good argumentation of the architecture/pipeline is required.
