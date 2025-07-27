@@ -37,11 +37,35 @@ Esto inicia:
 - grafana: En http://localhost:3000 (usuario: admin, contraseña: admin)
 
 ## 🚀 Endpoints
-Método	Ruta	Descripción
-POST	/api/documents	Procesa un documento subido
-GET	/api/documents/{id}	Recupera un documento por ID
-GET	/api/search?query=texto&top_k=3	Búsqueda semántica
-GET	/metrics	Métricas Prometheus
+| Método   | Ruta                                | Descripción |
+|----------|-------------------------------------|-------------|
+| POST  | **/api/documents**                  | Procesa un documento subido  |
+| GET  | **/api/documents/{id}**             | Recupera un documento por ID  |
+| GET  | **/api/search?query=texto&top_k=3** | Búsqueda semántica  |
+| GET  | **/metrics**                        | Métricas Prometheus |
+		
+### 📤 1. Procesar un documento (POST /api/documents)
+```bash
+curl -X POST http://localhost:8000/api/documents \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@ruta/al/archivo.docx"
+```
+🔁 Reemplaza `ruta/al/archivo.docx` con la ruta a un archivo `.docx`, `.pdf` o `.json`.
+
+### 📄 2. Obtener un documento por ID (GET /api/documents/{id})
+```bash
+curl -X GET http://localhost:8000/api/documents/1 \
+  -H "accept: application/json"
+```
+🔁 Reemplaza 1 con el ID del documento que quieres consultar.
+
+### 🔍 3. Búsqueda semántica (GET /api/search?query=texto&top_k=3)
+```bash
+curl -X GET "http://localhost:8000/api/search?query=contrato laboral&top_k=3" \
+  -H "accept: application/json"
+```
+🔁 Cambia el valor de `query` por tu término de búsqueda y `top_k` por el número de resultados deseado.
 
 ## 🧠 Modelos y Justificación
 #### Embeddings
