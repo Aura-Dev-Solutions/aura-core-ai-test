@@ -1,15 +1,77 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+actor Usuario
+participant "FastAPI Router" as Router
+participant "DocumentController" as Controller
+participant "DocumentService" as Service
+participant "extract_text" as Extractor
+participant "get_embedding" as Embedder
+participant "classify" as Classifier
+participant "extract_entities" as NER
+participant "DocumentRepository" as Repo
+database "Sqlite" as Database
+participant "Prometheus" as Prometheus
 
-autonumber
+Usuario -> Router : POST /api/documents\n(file: UploadFile)
+Router -> Controller : process_document(file)
+Controller -> Service : process_document(file)
 
-== Initialization ==
+Service -> Service : read file
+group <font color=red>Error reading file </font>
+    Service -[#red]> Controller : <color:red> Error reading file
+    Service --> Prometheus : send error metrics
+    Controller -[#red]> Router : <color:red> Error reading file
+    Router -[#red]> Usuario : <color:red> HTTP 500 Internal Server Error
+end
+Service -> Extractor : extract_text(content, filename)
+group <font color=red>Empty document file </font>
+    Extractor -[#red]> Service : <color:red> Empty document
+    Service -[#red]> Controller : <color:red> raise EmptyDocumentError
+    Service --> Prometheus : send error metrics
+    Controller -[#red]> Router : <color:red> catch EmptyDocumentError
+    Router -[#red]> Usuario : <color:red> HTTP 400 Bad request
+end
+Extractor --> Service : texto
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+Service -> Embedder : get_embedding(text)
+group <font color=red>Error embedding file </font>
+    Embedder -[#red]> Service : <color:red> Error embedding document
+    Service -[#red]> Controller : <color:red> raise Exception
+    Controller -[#red]> Router : <color:red> catch Exception
+    Router -[#red]> Usuario : <color:red> HTTP 500 Internal server error
+end
+Embedder --> Service : embedding
 
-== Repetition ==
+Service -> Classifier : classify(text)
+group <font color=red>Error classifying file </font>
+    Classifier -[#red]> Service : <color:red> Error classifying document
+    Service -[#red]> Controller : <color:red> raise Exception
+    Controller -[#red]> Router : <color:red> catch Exception
+    Router -[#red]> Usuario : <color:red> HTTP 500 Internal server error
+end
+Classifier --> Service : category
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+Service -> NER : extract_entities(text)
+group <font color=red>Error extracting entities file </font>
+    Classifier -[#red]> Service : <color:red> Error extracting entities
+    Service -[#red]> Controller : <color:red> raise Exception
+    Controller -[#red]> Router : <color:red> catch Exception
+end
+NER --> Service : entities
+
+Service -> Repo : insert_document(filename, text, embedding, category, entities)
+Repo -> Database : insert_document()
+group <font color=red>Error database file </font>
+    Database -[#red]> Repo : <color:red> Error database
+    Repo -[#red]> Service : <color:red> Error database
+    Service -[#red]> Controller : <color:red> raise Exception
+    Controller -[#red]> Router : <color:red> catch Exception
+end
+Database --> Repo : OK
+Repo --> Service : OK
+
+Service --> Prometheus : send metrics
+Service --> Controller : {text, embedding, category, entities}
+Controller --> Router : HTTP 200 + JSON
+Router -[#green]-> Usuario : <color:green>HTTP 200 + JSON
+
 @enduml
