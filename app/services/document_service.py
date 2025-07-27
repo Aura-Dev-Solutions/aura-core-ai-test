@@ -1,5 +1,6 @@
 import logging
 from fastapi import UploadFile
+from prometheus_client import Counter, Histogram
 from app.services.extractor import extract_text
 from app.services.embedder import get_embedding
 from app.services.classifier import classify
@@ -8,13 +9,20 @@ from app.repositories.sqlite_repository import DocumentRepository
 from app.exceptions import InvalidDocumentFormatError, EmptyDocumentError, DocumentNotFoundError
 
 logger = logging.getLogger(__name__)
+# Define métricas
+documents_processed = Counter("documents_processed_total", "Número de documentos procesados")
+processing_time = Histogram("document_processing_seconds", "Tiempo en segundos para procesar un documento")
+
 
 
 class DocumentService:
     def __init__(self, repository: DocumentRepository):
         self.repository = repository
 
+    @processing_time.time()
     async def process_document(self, file: UploadFile):
+        documents_processed.inc()
+
         content = await file.read()
         logger.debug("Extracting text...")
         try:

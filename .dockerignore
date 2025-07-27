@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite
+*.log
+.env
+.venv/
+venv/
+cache/
+checkpoints/
+data/
+models/
+*.pdf
+*.docx
+*.json

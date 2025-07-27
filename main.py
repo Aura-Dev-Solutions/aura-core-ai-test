@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from prometheus_fastapi_instrumentator import Instrumentator
 from app.api.routes import get_routes
 from app.db.database import init_db
 import uvicorn
@@ -12,6 +13,9 @@ def create_app():
     app = FastAPI(title="Document Analysis API")
     init_db()
     app.include_router(get_routes(), prefix="/api")
+
+    Instrumentator().instrument(app).expose(app, include_in_schema=False)
+
     return app
 
 
