@@ -1,0 +1,10 @@
+services:
+  document-api:
+    build: .
+    container_name: document_api
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
