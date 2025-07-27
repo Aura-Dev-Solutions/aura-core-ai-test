@@ -1,6 +1,7 @@
 import logging
 from fastapi import UploadFile
 from prometheus_client import Counter, Histogram
+from starlette.concurrency import run_in_threadpool
 from app.services.extractor import extract_text
 from app.services.embedder import get_embedding
 from app.services.classifier import classify
@@ -9,10 +10,9 @@ from app.repositories.sqlite_repository import DocumentRepository
 from app.exceptions import InvalidDocumentFormatError, EmptyDocumentError, DocumentNotFoundError
 
 logger = logging.getLogger(__name__)
-# Define métricas
+# Métricas
 documents_processed = Counter("documents_processed_total", "Número de documentos procesados")
 processing_time = Histogram("document_processing_seconds", "Tiempo en segundos para procesar un documento")
-
 
 
 class DocumentService:
@@ -26,7 +26,7 @@ class DocumentService:
         content = await file.read()
         logger.debug("Extracting text...")
         try:
-            text = extract_text(content, file.filename)
+            text = await run_in_threadpool(extract_text, content, file.filename)
         except ValueError as e:
             raise InvalidDocumentFormatError(str(e))
 
@@ -34,14 +34,14 @@ class DocumentService:
             raise EmptyDocumentError("The document contains no extractable text.")
 
         logger.debug("Generating embedding...")
-        embedding = get_embedding(text)
+        embedding = await run_in_threadpool(get_embedding, text)
         logger.debug("Classifying document...")
-        category = classify(text)
+        category = await run_in_threadpool(classify, text)
         logger.debug("Extracting named entities...")
-        entities = extract_entities(text)
+        entities = await run_in_threadpool(extract_entities, text)
 
         logger.debug("Saving document to database...")
-        self.repository.insert_document(file.filename, text, embedding, category, entities)
+        await run_in_threadpool(self.repository.insert_document, file.filename, text, embedding, category, entities)
 
         return {
             "text": text,
