@@ -1,12 +1,11 @@
 import sqlite3
 import json
 import numpy as np
-from app.db.database import DB_PATH
 
 
 class DocumentRepository:
-    def __init__(self):
-        self.db_path = DB_PATH
+    def __init__(self, path: str):
+        self.db_path = path
 
     def insert_document(self, filename, text, embedding, category, entities):
         with sqlite3.connect(self.db_path) as conn:

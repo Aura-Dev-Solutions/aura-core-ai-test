@@ -2,11 +2,12 @@ from fastapi import APIRouter, UploadFile, File, Query
 from app.controllers.document_controller import DocumentController
 from app.services.document_service import DocumentService
 from app.repositories.sqlite_repository import DocumentRepository
+from app.db.database import DB_PATH
 
 
 def get_routes():
     router = APIRouter()
-    repo = DocumentRepository()
+    repo = DocumentRepository(DB_PATH)
     service = DocumentService(repo)
     controller = DocumentController(service)
 
