@@ -46,16 +46,16 @@ Esto inicia:
 		
 ### 📤 1. Procesar un documento (POST /api/documents)
 ```bash
-curl -X POST http://localhost:8000/api/documents \
+curl -X POST http://localhost:8000/api/process \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
-  -F "file=@ruta/al/archivo.docx"
+  -F "file=@contrato_simple.docx"
 ```
 🔁 Reemplaza `ruta/al/archivo.docx` con la ruta a un archivo `.docx`, `.pdf` o `.json`.
 
 ### 📄 2. Obtener un documento por ID (GET /api/documents/{id})
 ```bash
-curl -X GET http://localhost:8000/api/documents/1 \
+curl -X GET http://localhost:8000/api/document/1 \
   -H "accept: application/json"
 ```
 🔁 Reemplaza 1 con el ID del documento que quieres consultar.
@@ -101,14 +101,13 @@ Se cubren los siguientes componentes:
 # 📐 Escalabilidad (Diseño Cloud Ready)
 - Separar cada componente como microservicio (procesamiento, embeddings, NER, etc.)
 - Usar almacenamiento en S3 y base de datos en RDS 
-- Colas de procesamiento con Redis 
-- Kubernetes para orquestación
+- Colas de procesamiento 
 
-# 📊 Diagrama de Arquitectura (borrador)
-
-[Usuario] → [FastAPI] → [Extractor | Embeddings | Classifier | NER]
-     ↓                      ↓
- [Grafana] ← [Prometheus]   → [SQLite o RDS]
+# 📊 Diagramas 
+## Arquitectura (propuesta)
+![arquitectura](./diagrams/aura.excalidraw.png)
+## Secuencia
+![flujo](./diagrams/process_document.png)
 
 # 🧪 Mejoras Futuras
 - Entrenamiento de modelo NER personalizado 
