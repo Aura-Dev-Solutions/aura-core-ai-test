@@ -37,12 +37,12 @@ Esto inicia:
 - grafana: En http://localhost:3000 (usuario: admin, contraseña: admin)
 
 ## 🚀 Endpoints
-| Método   | Ruta                                | Descripción |
-|----------|-------------------------------------|-------------|
-| POST  | **/api/documents**                  | Procesa un documento subido  |
-| GET  | **/api/documents/{id}**             | Recupera un documento por ID  |
+| Método   | Ruta                               | Descripción |
+|----------|------------------------------------|-------------|
+| POST  | **/api/process**                  | Procesa un documento subido  |
+| GET  | **/api/document/{id}**             | Recupera un documento por ID  |
 | GET  | **/api/search?query=texto&top_k=3** | Búsqueda semántica  |
-| GET  | **/metrics**                        | Métricas Prometheus |
+| GET  | **/metrics**                       | Métricas Prometheus |
 		
 ### 📤 1. Procesar un documento (POST /api/documents)
 ```bash
