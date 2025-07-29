@@ -1,4 +1,4 @@
-# Document Analysis API
+# Documento de ánalisis de la API
 
 Una API escalable para análisis de documentos usando técnicas de NLP e IA. Permite subir documentos PDF, DOCX o JSON, procesarlos para extraer texto, generar embeddings, clasificarlos, extraer entidades, y realizar búsqueda semántica.
 
@@ -104,7 +104,7 @@ Se cubren los siguientes componentes:
 - Colas de procesamiento 
 
 # 📊 Diagramas 
-## Arquitectura (propuesta)
+## Arquitectura 
 ![arquitectura](./diagrams/aura.excalidraw.png)
 ## Secuencia
 ![flujo](./diagrams/process_document.png)
@@ -115,6 +115,13 @@ Se cubren los siguientes componentes:
 - A/B testing de clasificadores
 - Métricas más detalladas (tiempo por componente)
 - Autenticación
+
+Se propone mejorar la arquitectura en AWS incorporando un bucket S3 que, 
+al recibir un nuevo documento, genere automáticamente un evento hacia una 
+cola SQS. Esta cola enviará un mensaje con la 
+información necesaria (como el nombre del archivo) para que la aplicación consuma ese mensaje, descargue el documento desde S3 y lo procese de manera asíncrona. Esta mejora permite desacoplar la carga de archivos del procesamiento, facilitando la escalabilidad y la tolerancia a fallos del sistema.
+
+![propose](./diagrams/aura_propose.excalidraw.png)
 
 # 📝 Notas
 - Documentación OpenAPI en http://localhost:8000/docs
