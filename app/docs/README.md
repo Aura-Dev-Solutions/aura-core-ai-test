@@ -44,7 +44,7 @@ Esto inicia:
 | GET  | **/api/search?query=texto&top_k=3** | Búsqueda semántica  |
 | GET  | **/metrics**                       | Métricas Prometheus |
 		
-### 📤 1. Procesar un documento (POST /api/documents)
+### 📤 1. Procesar un documento (POST /api/process)
 ```bash
 curl -X POST http://localhost:8000/api/process \
   -H "accept: application/json" \
@@ -53,7 +53,7 @@ curl -X POST http://localhost:8000/api/process \
 ```
 🔁 Reemplaza `ruta/al/archivo.docx` con la ruta a un archivo `.docx`, `.pdf` o `.json`.
 
-### 📄 2. Obtener un documento por ID (GET /api/documents/{id})
+### 📄 2. Obtener un documento por ID (GET /api/document/{id})
 ```bash
 curl -X GET http://localhost:8000/api/document/1 \
   -H "accept: application/json"
