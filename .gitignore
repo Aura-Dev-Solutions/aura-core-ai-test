@@ -134,6 +134,7 @@ env/
 venv/
 ENV/
 env.bak/
+<<<<<<< HEAD
 venv.bak/
 
 # Spyder project settings
@@ -169,3 +170,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+=======
+venv.bak/
+>>>>>>> a8b4384 (primer commit)
