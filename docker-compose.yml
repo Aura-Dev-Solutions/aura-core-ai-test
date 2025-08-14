@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DOCS_STORAGE_PATH=/data/docs
+      - EMBEDDINGS_PATH=/data/faiss.index
+      - SQLITE_PATH=/data/docai.db
+      - SENTENCE_MODEL=sentence-transformers/all-MiniLM-L6-v2
+      - MAX_WORKERS=4
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
