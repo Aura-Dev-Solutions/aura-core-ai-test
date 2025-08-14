@@ -111,4 +111,4 @@ Your solution will be evaluated based on:
 - Focus on demonstrating your problem-solving approach
 - Create a clear path for scaling the solution
 
-### Very important: you can request information about the test and communicate via email to otorres@auraresearch.ai / oscar@auraresearch.ai or create an issue in this repository to resolve doubts and discuss technical proposals. Communication and way of working will be evaluated. Not all points are indispensable, but a good argumentation of the architecture/pipeline is required.
+### Very important: you can request information about the test and communicate via email to otorres@auraresearch.ai / igutierrez@auraresearch.ai or create an issue in this repository to resolve doubts and discuss technical proposals. Communication and way of working will be evaluated. Not all points are indispensable, but a good argumentation of the architecture/pipeline is required.
