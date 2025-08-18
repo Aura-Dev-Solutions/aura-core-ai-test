@@ -1,0 +1,39 @@
+MANUAL DE USUARIO - SISTEMA DE ANÁLISIS DE DOCUMENTOS
+
+1. INTRODUCCIÓN
+Este manual describe cómo utilizar el sistema de análisis de documentos con inteligencia artificial desarrollado por Aura Research.
+
+2. CARACTERÍSTICAS PRINCIPALES
+- Procesamiento automático de documentos PDF, DOCX, JSON y TXT
+- Búsqueda semántica avanzada usando embeddings
+- Clasificación automática de documentos
+- Extracción de entidades nombradas (NER)
+- Interfaz web intuitiva y API REST
+
+3. INSTALACIÓN
+3.1 Requisitos del sistema:
+- Python 3.11 o superior
+- 8GB RAM mínimo (16GB recomendado)
+- 10GB espacio en disco
+- Conexión a internet para descarga de modelos
+
+3.2 Pasos de instalación:
+1. Clonar el repositorio
+2. Crear entorno virtual
+3. Instalar dependencias
+4. Configurar variables de entorno
+5. Ejecutar migraciones de base de datos
+
+4. USO BÁSICO
+4.1 Subir documentos:
+- Acceder a la interfaz web
+- Seleccionar archivos a procesar
+- Esperar confirmación de procesamiento
+
+4.2 Búsqueda de documentos:
+- Ingresar consulta en lenguaje natural
+- Revisar resultados ordenados por relevancia
+- Filtrar por tipo de documento o fecha
+
+5. SOPORTE TÉCNICO
+Para soporte técnico contactar: support@auraresearch.ai

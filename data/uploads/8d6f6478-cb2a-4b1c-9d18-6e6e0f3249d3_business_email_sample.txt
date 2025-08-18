@@ -1,0 +1,46 @@
+From: Sarah Johnson <sarah.johnson@globaltech.com>
+To: Michael Chen <michael.chen@auraresearch.ai>
+CC: team-leads@globaltech.com
+Date: January 16, 2025, 2:30 PM
+Subject: Q1 Project Review Meeting - Document Analysis System
+
+Dear Michael,
+
+I hope this email finds you well. I'm writing to schedule our quarterly project review meeting for the Document Analysis System implementation.
+
+MEETING DETAILS:
+Date: January 25, 2025
+Time: 10:00 AM - 11:30 AM PST
+Location: GlobalTech Conference Room B / Zoom (hybrid)
+Meeting ID: 123-456-789
+
+AGENDA:
+1. Project milestone review
+2. Performance metrics discussion
+3. Budget and timeline assessment
+4. Q2 planning and objectives
+5. Risk assessment and mitigation strategies
+
+ATTENDEES:
+- Sarah Johnson (Project Manager) - sarah.johnson@globaltech.com
+- Michael Chen (Technical Lead) - michael.chen@auraresearch.ai
+- Dr. Lisa Wang (AI Specialist) - lisa.wang@globaltech.com
+- Robert Davis (QA Manager) - robert.davis@globaltech.com
+
+PREPARATION REQUIRED:
+Please prepare the following materials:
+- Latest performance benchmarks
+- User feedback summary
+- Technical documentation updates
+- Resource allocation report
+
+If you have any conflicts with this schedule, please let me know by January 20th so we can reschedule accordingly.
+
+Looking forward to our productive discussion.
+
+Best regards,
+Sarah Johnson
+Senior Project Manager
+GlobalTech Solutions Inc.
+Phone: +1-415-555-0198
+Email: sarah.johnson@globaltech.com

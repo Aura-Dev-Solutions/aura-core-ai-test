@@ -1,0 +1,16 @@
+{
+  "titulo": "Contrato de Servicios de Desarrollo de Software",
+  "partes": {
+    "contratante": "Aura Research S.A.",
+    "contratista": "TechSolutions Inc."
+  },
+  "objeto": "Desarrollo de sistema de análisis de documentos con inteligencia artificial",
+  "duracion": "6 meses",
+  "valor": "$50,000 USD",
+  "clausulas": [
+    "El contratista se compromete a entregar el software según especificaciones",
+    "Se incluye soporte técnico por 3 meses adicionales",
+    "Todos los derechos de propiedad intelectual pertenecen al contratante"
+  ],
+  "fecha_firma": "2024-01-15"
+}

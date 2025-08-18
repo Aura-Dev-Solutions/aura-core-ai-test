@@ -1,0 +1,18 @@
+{
+  "titulo": "Política de Privacidad y Protección de Datos",
+  "vigencia": "2024-01-01",
+  "alcance": "Aplicable a todos los usuarios de la plataforma",
+  "principios": [
+    "Transparencia en el tratamiento de datos personales",
+    "Minimización de datos recolectados",
+    "Seguridad en el almacenamiento y transmisión",
+    "Derecho de los usuarios a acceder y modificar sus datos"
+  ],
+  "tipos_datos": [
+    "Datos de identificación personal",
+    "Datos de contacto",
+    "Datos de uso de la plataforma",
+    "Cookies y tecnologías similares"
+  ],
+  "base_legal": "Ley de Protección de Datos Personales y GDPR"
+}

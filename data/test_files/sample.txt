@@ -1,0 +1,7 @@
+
+    This is a sample text document for testing the Aura Document Analyzer.
+    
+    It contains multiple paragraphs and demonstrates the text extraction capabilities.
+    
+    The system should be able to process this file and extract meaningful content.
+    
