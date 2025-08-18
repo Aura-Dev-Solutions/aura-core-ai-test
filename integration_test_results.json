@@ -1,0 +1,93 @@
+{
+  "backend_api": {
+    "ping": {
+      "status_code": 200,
+      "response_time": 0.00850224494934082,
+      "success": true,
+      "content_type": "application/json",
+      "content_length": 45
+    },
+    "health": {
+      "status_code": 200,
+      "response_time": 0.045444488525390625,
+      "success": true,
+      "content_type": "application/json",
+      "content_length": 210
+    },
+    "stats": {
+      "status_code": 200,
+      "response_time": 0.04798460006713867,
+      "success": true,
+      "content_type": "application/json",
+      "content_length": 287
+    },
+    "root_json": {
+      "status_code": 200,
+      "response_time": 0.060108184814453125,
+      "success": true,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 12217
+    },
+    "home_page": {
+      "status_code": 200,
+      "response_time": 0.04793715476989746,
+      "success": true,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 12217
+    },
+    "analyze_page": {
+      "status_code": 200,
+      "response_time": 0.05612492561340332,
+      "success": true,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 20154
+    },
+    "samples_page": {
+      "status_code": 200,
+      "response_time": 0.05926632881164551,
+      "success": true,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 29247
+    },
+    "guide_page": {
+      "status_code": 200,
+      "response_time": 0.05144762992858887,
+      "success": true,
+      "content_type": "text/html; charset=utf-8",
+      "content_length": 22651
+    },
+    "static_css": {
+      "status_code": 200,
+      "response_time": 0.060080766677856445,
+      "success": true,
+      "content_type": "text/css; charset=utf-8",
+      "size": 3763
+    },
+    "static_js": {
+      "status_code": 200,
+      "response_time": 0.052072763442993164,
+      "success": false,
+      "content_type": "text/javascript; charset=utf-8",
+      "size": 15830
+    },
+    "upload": {
+      "status_code": 200,
+      "response_time": 0.05553555488586426,
+      "success": true
+    },
+    "ai_analysis": {
+      "status_code": 200,
+      "response_time": 0.05971837043762207,
+      "success": true
+    }
+  },
+  "integration": {},
+  "performance": {
+    "avg_response_time": 0.05041360855102539,
+    "max_response_time": 0.05209183692932129,
+    "min_response_time": 0.048058509826660156,
+    "all_under_1s": true,
+    "all_under_500ms": true
+  },
+  "errors": []
+}

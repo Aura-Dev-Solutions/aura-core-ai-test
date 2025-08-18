@@ -1,0 +1,13 @@
+{
+  "title": "Test Document",
+  "content": "This is a test document for the Aura Document Analyzer.",
+  "author": "Test Author",
+  "metadata": {
+    "created_date": "2024-01-01",
+    "tags": [
+      "test",
+      "document",
+      "json"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "titulo": "Análisis de Rendimiento de Modelos de IA",
+  "autor": "Dr. María González",
+  "fecha": "2024-02-20",
+  "resumen": "Este reporte analiza el rendimiento de diferentes modelos de inteligencia artificial para procesamiento de lenguaje natural",
+  "metodologia": "Se evaluaron modelos BERT, GPT y sentence-transformers usando métricas de precisión y recall",
+  "resultados": {
+    "bert_base": {
+      "precision": 0.89,
+      "recall": 0.85,
+      "f1": 0.87
+    },
+    "gpt_3.5": {
+      "precision": 0.92,
+      "recall": 0.88,
+      "f1": 0.9
+    },
+    "sentence_transformers": {
+      "precision": 0.87,
+      "recall": 0.91,
+      "f1": 0.89
+    }
+  },
+  "conclusiones": "Los modelos transformer muestran excelente rendimiento para tareas de NLP"
+}
