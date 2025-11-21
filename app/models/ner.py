@@ -1,11 +1,3 @@
-# app/models/ner.py
-"""
-Custom NER con GLiNER2-large-v1: Modelo multi-task (340M params) para extracción eficiente.
-Justificación: Schema-driven para entidades custom, CPU-optimized, SOTA en legal/finance (MTEB 2025).
-Fuente: https://huggingface.co/fastino/gliner2-large-v1
-Uso: Extrae entidades como PERSON, MONEY, PROJECT_CODE + structured JSON para RAG metadata.
-Adaptado de model card examples: Usa extract_entities con schema dict posicional.
-"""
 from gliner2 import GLiNER2
 from typing import List, Dict, Optional
 from loguru import logger
@@ -28,14 +20,18 @@ class GLINERExtractor:
                 device=device,
                 torch_dtype="float32"  # Para CPU stability
             )
-            # Schema con descripciones en NL (de docs: mejora precisión para custom entities)
-            self.schema = {
+            # Schema para NER con descripciones en NL (mejora precisión)
+            self.ner_schema = {
                 "person": "Nombres de personas o contactos",
                 "organization": "Nombres de empresas, organizaciones o entidades legales",
                 "date": "Fechas, plazos o referencias temporales como '15 de enero de 2025'",
                 "money": "Importes monetarios, presupuestos o pagos como '185.000 €'",
                 "location": "Lugares geográficos como ciudades o países",
                 "project_code": "Códigos de proyectos o referencias internas como 'AUR-2025-007'"
+            }
+            # Schema para clasificación de docs (single-label, categorías mutuamente exclusivas)
+            self.classification_schema = {
+                "document_type": ["contract", "invoice", "report", "nda", "email_thread", "financial_statement", "policy"]
             }
             logger.info(f"GLiNER2-large-v1 loaded: {model_name} on {device}")
         except Exception as e:
@@ -60,7 +56,7 @@ class GLINERExtractor:
             # extract_entities según docs: schema como dict posicional después de text
             result = self.model.extract_entities(
                 text,  # Posicional 1
-                self.schema  # Posicional 2: schema dict
+                self.ner_schema  # Posicional 2: schema dict
             )
             
             # Parse output: {'entities': {label: [values]}} → flatten
@@ -79,6 +75,34 @@ class GLINERExtractor:
         except Exception as e:
             logger.warning(f"NER extraction failed for text: {e}")
             return {}
+
+    def classify_document(
+        self, 
+        text: str
+    ) -> str:
+        """
+        Clasifica el documento completo usando classify_text (de docs GLiNER2).
+        Args:
+            text: Texto completo del documento.
+        Returns:
+            String con la categoría (ej: 'contract').
+        """
+        if len(text.strip()) < 100:  # Optimización: Skip docs muy cortos
+            return "unknown"
+        
+        try:
+            # classify_text según docs: schema como dict posicional (single-label)
+            result = self.model.classify_text(
+                text,  # Posicional 1
+                self.classification_schema  # Posicional 2: schema dict
+            )
+            
+            category = result.get('document_type', 'unknown')
+            logger.debug(f"Classified document as: {category}")
+            return category
+        except Exception as e:
+            logger.warning(f"Document classification failed: {e}")
+            return "unknown"
 
 # Instancia global lazy-load (singleton para eficiencia, carga en primer uso)
 _extractor_instance = None

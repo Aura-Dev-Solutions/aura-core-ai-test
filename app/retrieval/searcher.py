@@ -1,7 +1,7 @@
 # app/retrieval/searcher.py
 from app.ingestion.embedder import Embedder
 from app.core.vector_store import QdrantManager
-from qdrant_client.http.models import Filter, FieldCondition, MatchAny
+from qdrant_client.http.models import Filter, FieldCondition, MatchValue
 from typing import Optional
 
 class SemanticSearcher:
@@ -13,33 +13,40 @@ class SemanticSearcher:
         self, 
         query: str, 
         limit: int = 5, 
-        entity_filter: Optional[str] = None
+        entity_filter: Optional[str] = None,
+        category_filter: Optional[str] = None
     ):
         query_vector = self.embedder.embed_query(query)
         
-        # Filtro por entidades (NUEVO: Usa Qdrant filter para metadata.entities)
-        filter_dict = None
+        conditions = []
         if entity_filter:
-            filter_dict = Filter(
-                must=[
-                    FieldCondition(
-                        key="metadata.entities.%s" % entity_filter,
-                        match=MatchAny(any=[])  # Existe al menos una entidad de este tipo
-                    )
-                ]
+            conditions.append(
+                FieldCondition(
+                    key=f"metadata.entities.{entity_filter}",
+                    match=MatchValue(value=True)  # Existe la clave y no está vacía
+                )
             )
+        if category_filter:
+            conditions.append(
+                FieldCondition(
+                    key="metadata.doc_category",
+                    match=MatchValue(value=category_filter)
+                )
+            )
+        
+        filter_dict = Filter(must=conditions) if conditions else None
         
         results = self.vector_store.search(
             query_vector, 
             limit=limit, 
             filter_dict=filter_dict
         )
+
         return [
             {
                 "text": hit.payload["text"],
                 "score": float(hit.score),
-                "metadata": hit.payload["metadata"],
-                "entities": hit.payload["metadata"].get("entities", {})
+                "metadata": hit.payload["metadata"],  
             }
             for hit in results
         ]

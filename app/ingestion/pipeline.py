@@ -4,7 +4,7 @@ from app.ingestion.document_loader import DocumentLoader
 from app.ingestion.text_splitter import HierarchicalSplitter
 from app.ingestion.embedder import Embedder
 from app.core.vector_store import QdrantManager
-from app.models.ner import get_extractor  # ← IMPORT (lazy)
+from app.models.ner import get_extractor  # ← IMPORT (lazy para NER + clasificación)
 from qdrant_client.http.models import PointStruct
 from loguru import logger
 import uuid
@@ -15,13 +15,13 @@ class DocumentProcessor:
         self.splitter = HierarchicalSplitter()
         self.embedder = Embedder()
         self.vector_store = QdrantManager()
-        self.ner_extractor = None  # ← Lazy init (evita crash en startup)
+        self.extractor = None  # ← Lazy init para GLiNER2 (NER + classifier)
 
-    def _get_ner_extractor(self):
-        """Lazy load NER solo cuando se necesita (primer process)."""
-        if self.ner_extractor is None:
-            self.ner_extractor = get_extractor(device="cpu")  # ← FIX: Sin threshold
-        return self.ner_extractor
+    def _get_extractor(self):
+        """Lazy load GLiNER2 solo cuando se necesita."""
+        if self.extractor is None:
+            self.extractor = get_extractor(device="cpu")
+        return self.extractor
 
     def process(self, file_path: str, doc_id: str = None):
         doc_id = doc_id or str(uuid4())
@@ -29,26 +29,32 @@ class DocumentProcessor:
 
         # 1. Load
         docs = self.loader.load(file_path)
+        full_text = "\n".join([doc.page_content for doc in docs])  # Texto completo para clasificación
         for doc in docs:
             doc.metadata["doc_id"] = doc_id
 
-        # 2. Split
+        # 2. Clasificación del documento completo (NUEVO: Antes del split)
+        extractor = self._get_extractor()
+        doc_category = extractor.classify_document(full_text)
+        logger.info(f"Document classified as: {doc_category}")
+
+        # 3. Split
         chunks = self.splitter.split_documents(docs)
 
-        # 3. NER Enrichment (Lazy: Carga solo aquí, no en __init__)
+        # 4. NER Enrichment (por chunk)
         enriched_chunks = []
-        ner_extractor = self._get_ner_extractor()  # ← Lazy call
         for i, chunk in enumerate(chunks):
-            entities = ner_extractor.extract_entities(chunk.page_content)
-            chunk.metadata["entities"] = entities  # Enriquecemos metadata
+            entities = extractor.extract_entities(chunk.page_content)
+            chunk.metadata["entities"] = entities
+            chunk.metadata["doc_category"] = doc_category  # ← NUEVO: Propaga categoría a todos chunks
             enriched_chunks.append(chunk)
             logger.debug(f"Chunk {i}: Extracted {len(entities)} entity types")
 
-        # 4. Embed (usa chunks enriquecidos)
+        # 5. Embed (usa chunks enriquecidos)
         texts = [chunk.page_content for chunk in enriched_chunks]
         vectors = self.embedder.embed_documents(texts)
 
-        # 5. Store con UUID válidos y metadata rica
+        # 6. Store con UUID válidos y metadata rica (incluye categoría)
         points = [
             PointStruct(
                 id=str(uuid.uuid4()),  # UUID limpio
@@ -65,5 +71,5 @@ class DocumentProcessor:
             for i, (chunk, vector) in enumerate(zip(enriched_chunks, vectors))
         ]
         self.vector_store.upsert(points)
-        logger.success(f"Document {doc_id} processed and stored ({len(chunks)} chunks with GLiNER2-large-v1 NER)")
-        return {"doc_id": doc_id, "chunks": len(chunks)}
+        logger.success(f"Document {doc_id} ({doc_category}) processed and stored ({len(chunks)} chunks with GLiNER2 NER + classification)")
+        return {"doc_id": doc_id, "chunks": len(chunks), "category": doc_category}
