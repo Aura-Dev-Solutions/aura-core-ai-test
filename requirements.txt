@@ -1,0 +1,18 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+langchain==0.3.2
+langchain-community==0.3.1
+langchain-huggingface==0.1.0
+qdrant-client==1.11.2
+pymupdf==1.24.10
+python-docx==1.1.2
+pydantic==2.9.2
+python-multipart==0.0.9
+loguru==0.7.2
+python-dotenv==1.0.1
+# ← Aquí el truco para que pese 10 veces menos:
+torch
+torchaudio
+torchvision
+--extra-index-url https://download.pytorch.org/whl/cpu
+sentence-transformers
