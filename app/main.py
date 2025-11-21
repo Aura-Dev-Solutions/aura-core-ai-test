@@ -1,9 +1,11 @@
+# app/main.py
 from fastapi import FastAPI, UploadFile, File, Query
 from app.ingestion.pipeline import DocumentProcessor
 from app.retrieval.searcher import SemanticSearcher
 from app.schemas import SearchResponse
 import shutil
 import os
+from typing import Optional
 
 app = FastAPI(title="Aura Research - Document Analysis System")
 
@@ -20,9 +22,13 @@ async def upload_file(file: UploadFile = File(...)):
         shutil.copyfileobj(file.file, f)
     
     result = processor.process(file_path)
-    return {"message": "Document processed", "doc_id": result["doc_id"]}
+    return {"message": "Document processed with GLiNER2 NER", "doc_id": result["doc_id"]}
 
 @app.get("/search", response_model=SearchResponse)
-async def search(q: str = Query(..., min_length=3), limit: int = 5):
-    results = searcher.search(q, limit=limit)
+async def search(
+    q: str = Query(..., min_length=3), 
+    limit: int = Query(5, ge=1, le=20),
+    entity_filter: Optional[str] = Query(None, description="Filter by entity type, e.g., 'money'")  # ← NUEVO
+):
+    results = searcher.search(q, limit=limit, entity_filter=entity_filter)
     return {"query": q, "results": results}

@@ -16,3 +16,6 @@ torchaudio
 torchvision
 --extra-index-url https://download.pytorch.org/whl/cpu
 sentence-transformers
+transformers
+gliner2
+accelerate
