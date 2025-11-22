@@ -23,3 +23,7 @@ accelerate
 celery[redis]
 flower
 minio
+
+pytest
+httpx
+pytest-asyncio
