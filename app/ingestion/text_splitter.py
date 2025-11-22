@@ -31,7 +31,8 @@ class HierarchicalSplitter:
             if current_content:
                 chunks.append(self._create_chunk("\n".join(current_content), current_section, doc))
 
-        return self.splitter.split_documents(chunks) if not chunks else chunks
+        # Asegurar que todos los chunks (vengan de secciones o no) respeten el tamaño máximo
+        return self.splitter.split_documents(chunks)
 
     def _create_chunk(self, content, section, original_doc):
         return Document(
