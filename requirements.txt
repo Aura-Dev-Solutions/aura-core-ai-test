@@ -27,3 +27,5 @@ minio
 pytest
 httpx
 pytest-asyncio
+
+unstructured[docx]
