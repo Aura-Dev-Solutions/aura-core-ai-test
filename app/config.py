@@ -4,25 +4,25 @@ from pathlib import Path
 
 class Settings(BaseSettings):
     # Qdrant
-    qdrant_host: str = "qdrant"
-    qdrant_port: int = 6333
-    qdrant_collection: str = "document_chunks"
-    embedding_model: str = "all-MiniLM-L6-v2"
+    qdrant_host: str 
+    qdrant_port: int 
+    qdrant_collection: str 
+    embedding_model: str 
     
     # OpenRouter / LLM
-    openrouter_api_key: str = "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"
-    openrouter_model: str = "kwaipilot/kat-coder-pro:free"
+    openrouter_api_key: str
+    openrouter_model: str 
     
     # Celery
-    celery_broker_url: str = "redis://redis:6379/0"
-    celery_result_backend: str = "redis://redis:6379/1"
+    celery_broker_url: str 
+    celery_result_backend: str 
     
     # MinIO
-    minio_endpoint: str = "minio:9000"
-    minio_access_key: str = "minioadmin"
-    minio_secret_key: str = "minioadmin123"
-    minio_bucket: str = "documents"
-    minio_secure: bool = False
+    minio_endpoint: str 
+    minio_access_key: str
+    minio_secret_key: str
+    minio_bucket: str 
+    minio_secure: bool 
     
     model_config = {"env_file": ".env"}
 

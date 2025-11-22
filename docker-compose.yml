@@ -10,9 +10,11 @@ services:
     image: minio/minio:latest
     container_name: aura-minio
     command: server /data --console-address ":9001"
+    env_file:
+      - .env
     environment:
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin123
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-minioadmin123}
     ports:
       - "9000:9000"
       - "9001:9001"
@@ -36,14 +38,8 @@ services:
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1
     ports:
       - "8000:8000"
-    environment:
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/1
-      - MINIO_ENDPOINT=minio:9000
-      - MINIO_ACCESS_KEY=minioadmin
-      - MINIO_SECRET_KEY=minioadmin123
-      - MINIO_BUCKET=documents
-      - MINIO_SECURE=false
+    env_file:
+      - .env
     volumes:
       - ./tmp:/tmp
     restart: unless-stopped
@@ -52,14 +48,8 @@ services:
     build: .
     container_name: aura-worker
     command: celery -A app.tasks.celery worker --loglevel=info --concurrency=4 --pool=prefork
-    environment:
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/1
-      - MINIO_ENDPOINT=minio:9000
-      - MINIO_ACCESS_KEY=minioadmin
-      - MINIO_SECRET_KEY=minioadmin123
-      - MINIO_BUCKET=documents
-      - MINIO_SECURE=false
+    env_file:
+      - .env
     volumes:
       - ./tmp:/tmp
     restart: unless-stopped
@@ -70,9 +60,8 @@ services:
     command: celery -A app.tasks.celery flower --port=5555 --basic_auth=admin:supergrok2025
     ports:
       - "5555:5555"
-    environment:
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+    env_file:
+      - .env
     restart: unless-stopped
 
 volumes:

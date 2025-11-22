@@ -1,10 +1,10 @@
 # app/main.py
 from fastapi import FastAPI, UploadFile, File, Query
-from app.tasks import process_document_task, celery_app  # FIX: Import celery_app para AsyncResult
+from app.tasks import process_document_task, celery_app  
 from celery.result import AsyncResult
 from app.storage.minio_client import minio_client
 from app.retrieval.searcher import SemanticSearcher
-from app.core.rag import RAGService
+from app.retrieval.rag import RAGService
 from app.schemas import SearchResponse, ChatRequest, ChatResponse
 import uuid
 import shutil
