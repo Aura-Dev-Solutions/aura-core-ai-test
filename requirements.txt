@@ -19,3 +19,7 @@ sentence-transformers
 transformers
 gliner2
 accelerate
+
+celery[redis]
+flower
+minio
