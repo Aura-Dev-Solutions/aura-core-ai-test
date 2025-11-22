@@ -55,8 +55,8 @@ class GLINERExtractor:
         try:
             # extract_entities según docs: schema como dict posicional después de text
             result = self.model.extract_entities(
-                text,  # Posicional 1
-                self.ner_schema  # Posicional 2: schema dict
+                text, 
+                self.ner_schema  
             )
             
             # Parse output: {'entities': {label: [values]}} → flatten
@@ -66,7 +66,7 @@ class GLINERExtractor:
             extracted = {}
             for label, values in entities.items():
                 if isinstance(values, list):
-                    extracted[label] = list(set([v.strip() for v in values if v.strip()]))  # Unique + clean
+                    extracted[label] = list(set([v.strip() for v in values if v.strip()]))  
                 else:
                     extracted[label] = [str(values).strip()] if values else []
             
@@ -93,8 +93,8 @@ class GLINERExtractor:
         try:
             # classify_text según docs: schema como dict posicional (single-label)
             result = self.model.classify_text(
-                text,  # Posicional 1
-                self.classification_schema  # Posicional 2: schema dict
+                text, 
+                self.classification_schema 
             )
             
             category = result.get('document_type', 'unknown')
@@ -104,7 +104,7 @@ class GLINERExtractor:
             logger.warning(f"Document classification failed: {e}")
             return "unknown"
 
-# Instancia global lazy-load (singleton para eficiencia, carga en primer uso)
+
 _extractor_instance = None
 
 def get_extractor(device: str = "cpu") -> 'GLINERExtractor':

@@ -33,19 +33,12 @@ class MinIOClient:
         logger.info(f"Archivo subido: {object_name}")
 
     def download_file(self, object_name: str) -> str:
-        """
-        Descarga un archivo de MinIO preservando la extensión original
-        ¡¡¡ESTO ES LO QUE ARREGLA TODO!!!
-        """
-        # Extraemos la extensión original del nombre del objeto
+        """Descarga un archivo de MinIO y lo guarda en un archivo temporal."""
+
         _, ext = os.path.splitext(object_name)
-        
-        # Creamos un archivo temporal con la misma extensión
         temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=ext)
         temp_path = temp_file.name
         temp_file.close()
-
-        # Descargamos el archivo desde MinIO
         self.client.fget_object(self.bucket, object_name, temp_path)
         logger.info(f"Archivo descargado con extensión: {temp_path}")
 
@@ -60,5 +53,5 @@ class MinIOClient:
         self.client.remove_object(self.bucket, object_name)
 
 
-# Instancia global (usada por toda la app)
+
 minio_client = MinIOClient()

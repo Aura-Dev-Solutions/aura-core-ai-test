@@ -4,7 +4,7 @@ from app.ingestion.document_loader import DocumentLoader
 from app.ingestion.text_splitter import HierarchicalSplitter
 from app.ingestion.embedder import Embedder
 from app.core.vector_store import QdrantManager
-from app.models.ner import get_extractor  # ← IMPORT (lazy para NER + clasificación)
+from app.models.ner import get_extractor  
 from qdrant_client.http.models import PointStruct
 from loguru import logger
 import uuid
@@ -15,7 +15,7 @@ class DocumentProcessor:
         self.splitter = HierarchicalSplitter()
         self.embedder = Embedder()
         self.vector_store = QdrantManager()
-        self.extractor = None  # ← Lazy init para GLiNER2 (NER + classifier)
+        self.extractor = None 
 
     def _get_extractor(self):
         """Lazy load GLiNER2 solo cuando se necesita."""
@@ -46,7 +46,7 @@ class DocumentProcessor:
         for i, chunk in enumerate(chunks):
             entities = extractor.extract_entities(chunk.page_content)
             chunk.metadata["entities"] = entities
-            chunk.metadata["doc_category"] = doc_category  # ← NUEVO: Propaga categoría a todos chunks
+            chunk.metadata["doc_category"] = doc_category  
             enriched_chunks.append(chunk)
             logger.debug(f"Chunk {i}: Extracted {len(entities)} entity types")
 
@@ -57,7 +57,7 @@ class DocumentProcessor:
         # 6. Store con UUID válidos y metadata rica (incluye categoría)
         points = [
             PointStruct(
-                id=str(uuid.uuid4()),  # UUID limpio
+                id=str(uuid.uuid4()),  
                 vector=vector,
                 payload={
                     "text": chunk.page_content,

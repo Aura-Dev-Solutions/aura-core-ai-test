@@ -45,5 +45,4 @@ def process_document_task(self, object_key: str, filename: str):
         logger.error(f"Error en tarea: {e}")
         raise
 
-# ← ¡¡ESTA LÍNEA ES LA QUE ARREGLA TODO!!
 celery = celery_app

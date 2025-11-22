@@ -5,7 +5,7 @@ from typing import List, Dict, Any
 class SearchResult(BaseModel):
     text: str
     score: float
-    metadata: Dict[str, Any]  # ← Aquí vienen: entities, doc_category, source, etc.
+    metadata: Dict[str, Any]  
 
 class SearchResponse(BaseModel):
     query: str
