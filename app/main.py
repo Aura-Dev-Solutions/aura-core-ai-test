@@ -17,6 +17,10 @@ searcher = SemanticSearcher()
 UPLOAD_DIR = "/tmp/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
+@app.get("/health")
+async def health_check():
+    return {"status": "ok", "service": "aura-api"}
+
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     temp_path = f"{UPLOAD_DIR}/{uuid.uuid4()}_{file.filename}"
@@ -50,3 +54,51 @@ async def search(
     """Búsqueda sin cambios (usa Qdrant)."""
     results = searcher.search(q, limit=limit, entity_filter=entity_filter, category_filter=category_filter)
     return {"query": q, "results": results}
+
+@app.get("/documents/{doc_id}")
+async def get_document_details(doc_id: str):
+    """Recupera los detalles de un documento procesado (categoría, entidades, chunks)."""
+    from app.core.vector_store import QdrantManager
+    
+    # Instanciamos QdrantManager directamente aquí (o inyectamos dependencia)
+    qdrant = QdrantManager()
+    chunks = qdrant.get_document_chunks(doc_id)
+    
+    if not chunks:
+        return {"error": "Document not found", "doc_id": doc_id}
+    
+    # Agregamos metadatos
+    first_chunk = chunks[0]
+    category = first_chunk.payload.get("metadata", {}).get("doc_category", "unknown")
+    filename = first_chunk.payload.get("metadata", {}).get("source", "unknown")
+    
+    # Consolidar entidades únicas
+    all_entities = {}
+    for chunk in chunks:
+        entities = chunk.payload.get("metadata", {}).get("entities", {})
+        for label, values in entities.items():
+            if label not in all_entities:
+                all_entities[label] = set()
+            all_entities[label].update(values)
+            
+    # Convertir sets a listas para JSON
+    consolidated_entities = {k: list(v) for k, v in all_entities.items()}
+    
+    return {
+        "doc_id": doc_id,
+        "filename": filename,
+        "category": category,
+        "total_chunks": len(chunks),
+        "entities": consolidated_entities,
+        # "chunks": [c.payload for c in chunks] # Opcional: devolver todos los chunks
+    }
+
+@app.delete("/documents/{doc_id}")
+async def delete_document(doc_id: str):
+    """Elimina un documento y sus vectores asociados."""
+    from app.core.vector_store import QdrantManager
+    
+    qdrant = QdrantManager()
+    qdrant.delete_document(doc_id)
+    
+    return {"status": "deleted", "doc_id": doc_id}
