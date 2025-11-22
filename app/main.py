@@ -4,7 +4,8 @@ from app.tasks import process_document_task, celery_app  # FIX: Import celery_ap
 from celery.result import AsyncResult
 from app.storage.minio_client import minio_client
 from app.retrieval.searcher import SemanticSearcher
-from app.schemas import SearchResponse
+from app.core.rag import RAGService
+from app.schemas import SearchResponse, ChatRequest, ChatResponse
 import uuid
 import shutil
 import os
@@ -13,6 +14,7 @@ from typing import Optional
 app = FastAPI(title="Aura Research - Document Analysis System (MinIO + Celery)")
 
 searcher = SemanticSearcher()
+rag_service = RAGService()
 
 UPLOAD_DIR = "/tmp/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -54,6 +56,11 @@ async def search(
     """Búsqueda sin cambios (usa Qdrant)."""
     results = searcher.search(q, limit=limit, entity_filter=entity_filter, category_filter=category_filter)
     return {"query": q, "results": results}
+
+@app.post("/chat", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    """Endpoint RAG: Responde preguntas usando el contexto de los documentos."""
+    return rag_service.generate_answer(request.query)
 
 @app.get("/documents/{doc_id}")
 async def get_document_details(doc_id: str):
