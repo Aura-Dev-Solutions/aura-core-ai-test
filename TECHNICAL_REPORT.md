@@ -76,6 +76,27 @@ aura-core-ai-test/
 └── requirements.txt            # Python dependencies
 ```
 
+### 1.4 Configuration
+The application relies on environment variables for configuration. A `.env` file must be present in the root directory for the system to function correctly. This file defines connection strings, credentials, and model parameters.
+
+**Required Environment Variables:**
+
+| Category | Variable | Description |
+| :--- | :--- | :--- |
+| **Qdrant** | `QDRANT_HOST` | Hostname of the Qdrant service (e.g., `qdrant`). |
+| | `QDRANT_PORT` | Port for Qdrant API (e.g., `6333`). |
+| | `QDRANT_COLLECTION` | Name of the vector collection. |
+| | `EMBEDDING_MODEL` | Name of the embedding model to use. |
+| **OpenRouter** | `OPENROUTER_API_KEY` | API Key for OpenRouter (LLM access). |
+| | `OPENROUTER_MODEL` | Model ID to use (e.g., `openai/gpt-4o`). |
+| **Celery** | `CELERY_BROKER_URL` | Redis connection string for the broker. |
+| | `CELERY_RESULT_BACKEND` | Redis connection string for results. |
+| **MinIO** | `MINIO_ENDPOINT` | Hostname/IP of the MinIO service. |
+| | `MINIO_ACCESS_KEY` | Access key (username) for MinIO. |
+| | `MINIO_SECRET_KEY` | Secret key (password) for MinIO. |
+| | `MINIO_BUCKET` | Name of the bucket to store documents. |
+| | `MINIO_SECURE` | Boolean (`true`/`false`) for SSL/TLS. |
+
 ## 2. API Endpoints
 
 The API is organized into three main modules:
