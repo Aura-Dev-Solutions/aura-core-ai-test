@@ -12,22 +12,15 @@ pydantic==2.9.2
 python-multipart==0.0.9
 loguru==0.7.2
 python-dotenv==1.0.1
-# ← Aquí el truco para que pese 10 veces menos:
-torch
+torch==2.9.1
 torchaudio
 torchvision
 --extra-index-url https://download.pytorch.org/whl/cpu
-sentence-transformers
-transformers
-gliner2
-accelerate
-
+sentence-transformers==5.1.2
+transformers==4.57.1
+gliner2==1.0.2
+accelerate==1.12.0
 celery[redis]
-flower
-minio
-
-pytest
-httpx
-pytest-asyncio
-
+flower==2.0.1
+minio==7.2.18
 unstructured[docx]
