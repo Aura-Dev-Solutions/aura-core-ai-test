@@ -153,11 +153,12 @@ The document processing flow is designed to be robust and asynchronous:
 - **Unified Architecture:** We use the same model instance for both Entity Extraction and Document Classification, reducing memory footprint.
 
 ### 4.2 Embeddings
-**Selected Model:** `sentence-transformers` (via `LangChain`)
+**Selected Model:** `sentence-transformers/all-MiniLM-L6-v2`
 
 **Justification:**
-- **State-of-the-Art Performance:** Sentence Transformers provide high-quality dense vector representations optimized for semantic search.
-- **Local Execution:** Can run locally within the container, avoiding external API latency and costs (data privacy).
+- **Efficiency:** This is a lightweight model ("chiquito") optimized for speed and low memory usage, making it ideal for local execution in a containerized environment.
+- **Flexibility:** The system is designed to be model-agnostic; other HuggingFace models can be easily swapped in by updating the configuration if higher accuracy or different language support is needed.
+- **Local Execution:** Runs entirely locally, ensuring data privacy and zero latency from external API calls.
 - **Compatibility:** Fully compatible with Qdrant's cosine distance metric.
 
 ## 5. Scalability & Performance
