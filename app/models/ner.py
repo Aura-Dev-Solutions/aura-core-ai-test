@@ -5,7 +5,7 @@ from loguru import logger
 class GLINERExtractor:
     def __init__(
         self, 
-        model_name: str = "fastino/gliner2-large-v1",
+        model_name: str = "fastino/gliner2-base-v1",
         device: str = "cpu"
     ):
         """
@@ -27,7 +27,9 @@ class GLINERExtractor:
                 "date": "Fechas, plazos o referencias temporales como '15 de enero de 2025'",
                 "money": "Importes monetarios, presupuestos o pagos como '185.000 €'",
                 "location": "Lugares geográficos como ciudades o países",
-                "project_code": "Códigos de proyectos o referencias internas como 'AUR-2025-007'"
+                "financial_metric": "Métricas financieras clave como 'Net Revenues', 'Operating Income', 'EPS', 'Organic Growth'",
+                "fiscal_period": "Periodos fiscales como 'Q3 2025', 'Fiscal Year 2024', 'Nine Months Ended'",
+                "growth_rate": "Porcentajes de crecimiento o variación como '+5%', 'declined 2%', 'organic revenue growth of 9%'"
             }
             # Schema para clasificación de docs (single-label, categorías mutuamente exclusivas)
             self.classification_schema = {

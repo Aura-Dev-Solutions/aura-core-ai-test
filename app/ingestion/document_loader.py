@@ -3,8 +3,6 @@ from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_core.documents import Document
 from loguru import logger
 from pathlib import Path
-import fitz  # PyMuPDF directamente
-
 
 class DocumentLoader:
     @staticmethod
@@ -14,25 +12,55 @@ class DocumentLoader:
 
         try:
             if path.suffix.lower() == ".pdf":
-
-                doc = fitz.open(file_path)
+                import pdfplumber
+                
                 documents = []
-                for page_num in range(len(doc)):
-                    page = doc.load_page(page_num)
-                    text = page.get_text("text")
-                    blocks = page.get_text("dict")["blocks"]
-                    metadata = {
-                        "source": path.name,
-                        "format": "pdf",
-                        "page": page_num + 1,
-                        "total_pages": len(doc)
-                    }
-                    
-                    documents.append(Document(
-                        page_content=text.strip(),
-                        metadata=metadata
-                    ))
-                doc.close()
+                with pdfplumber.open(file_path) as pdf:
+                    for i, page in enumerate(pdf.pages):
+                        # 1. Extraer texto normal
+                        text = page.extract_text() or ""
+                        
+                        # 2. Extraer tablas y convertirlas a Markdown
+                        tables = page.extract_tables()
+                        tables_md = []
+                        if tables:
+                            for table in tables:
+                                # Limpiar celdas (None -> "") y eliminar saltos de línea internos
+                                clean_table = [
+                                    [str(cell or "").strip().replace("\n", " ") for cell in row]
+                                    for row in table
+                                ]
+                                
+                                # Generar tabla Markdown si tiene contenido
+                                if clean_table:
+                                    # Asumimos primera fila como header
+                                    headers = clean_table[0]
+                                    rows = clean_table[1:]
+                                    
+                                    # Construir tabla MD
+                                    md_table = f"\n| {' | '.join(headers)} |"
+                                    md_table += f"\n| {' | '.join(['---'] * len(headers))} |"
+                                    for row in rows:
+                                        md_table += f"\n| {' | '.join(row)} |"
+                                    
+                                    tables_md.append(md_table)
+                        
+                        # 3. Combinar texto y tablas (dando prioridad a la estructura)
+                        # Añadimos las tablas al final del texto de la página para contexto explícito
+                        if tables_md:
+                            text += "\n\n### Extracted Tables (Structured):\n" + "\n\n".join(tables_md)
+
+                        metadata = {
+                            "source": path.name,
+                            "format": "pdf",
+                            "page": i + 1,
+                            "total_pages": len(pdf.pages)
+                        }
+                        
+                        documents.append(Document(
+                            page_content=text.strip(),
+                            metadata=metadata
+                        ))
                 return documents
 
             elif path.suffix.lower() in [".docx", ".doc"]:
