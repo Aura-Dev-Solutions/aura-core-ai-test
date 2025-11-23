@@ -1,4 +1,3 @@
-# app/tasks.py
 from celery import Celery
 from app.ingestion.pipeline import DocumentProcessor
 from app.storage.minio_client import minio_client

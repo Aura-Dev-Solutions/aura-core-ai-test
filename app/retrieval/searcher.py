@@ -1,4 +1,3 @@
-# app/retrieval/searcher.py
 from app.ingestion.embedder import Embedder
 from app.core.vector_store import QdrantManager
 from qdrant_client.http.models import Filter, FieldCondition, MatchValue
@@ -23,7 +22,7 @@ class SemanticSearcher:
             conditions.append(
                 FieldCondition(
                     key=f"metadata.entities.{entity_filter}",
-                    match=MatchValue(value=True)  # Existe la clave y no está vacía
+                    match=MatchValue(value=True)  
                 )
             )
         if category_filter:

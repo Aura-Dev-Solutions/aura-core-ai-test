@@ -79,7 +79,6 @@ class DocumentService:
 
     def delete_document(self, doc_id: str):
         """Elimina un documento de Qdrant."""
-        # Nota: Aquí también podríamos borrar de MinIO si tuviéramos el object_name mapeado
         self.qdrant.delete_document(doc_id)
         return {"status": "deleted", "doc_id": doc_id}
 

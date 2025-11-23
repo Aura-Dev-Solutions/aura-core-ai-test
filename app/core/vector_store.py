@@ -58,11 +58,11 @@ class QdrantManager:
             ]
         )
         
-        # Scroll para obtener todos los chunks (paginado si son muchos, aquí simplificado)
+
         results, _ = self.client.scroll(
             collection_name=self.collection_name,
             scroll_filter=filter_dict,
-            limit=100,  # Asumimos max 100 chunks por doc para esta demo
+            limit=100, 
             with_payload=True,
             with_vectors=False
         )

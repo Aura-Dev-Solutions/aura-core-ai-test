@@ -1,0 +1,150 @@
+# Technical Report - Scalable Document Analysis System
+
+## 1. System Architecture
+
+### 1.1 High-Level Architecture
+The system follows a **Microservices Event-Driven Architecture** designed for scalability and fault tolerance.
+
+```mermaid
+graph TD
+    Client[Client / Frontend] -->|HTTP/REST| API[FastAPI Gateway]
+    
+    subgraph "Core Services"
+        API -->|Upload| MinIO[MinIO Object Storage]
+        API -->|Search/RAG| Qdrant[Qdrant Vector Store]
+        API -->|Async Task| Redis[Redis Broker]
+    end
+    
+    subgraph "Worker Layer"
+        Redis -->|Consume| Worker[Celery Worker]
+        Worker -->|Fetch Doc| MinIO
+        Worker -->|Store Embeddings| Qdrant
+    end
+    
+    subgraph "AI Services (Embedded in Worker)"
+        Worker -->|Extract| PDFLib[PDFPlumber]
+        Worker -->|NER/Classify| GLiNER[GLiNER Model]
+        Worker -->|Embed| HF[HuggingFace Embeddings]
+    end
+```
+
+### 1.2 Docker Services Overview
+The system is composed of the following containerized services defined in `docker-compose.yml`:
+
+| Service | Role | Description |
+| :--- | :--- | :--- |
+| **api** | Gateway | FastAPI application handling HTTP requests, validation, and task dispatching. |
+| **worker** | Processing | Celery worker that executes heavy background tasks (PDF parsing, AI inference). |
+| **redis** | Broker | Message broker for Celery task queues and result backend. |
+| **minio** | Storage | S3-compatible object storage for raw document files (PDF, DOCX). |
+| **qdrant** | Vector DB | Vector database for storing document embeddings and metadata for semantic search. |
+| **flower** | Monitoring | Web UI for monitoring Celery workers and task progress (Port 5555). |
+| **cadvisor** | Metrics | Google's cAdvisor for monitoring container resource usage (CPU/RAM). |
+
+### 1.3 Project Structure
+The codebase is organized to separate concerns and promote modularity:
+
+```
+aura-core-ai-test/
+├── app/                        # Core application source code
+│   ├── api/                    # API Layer
+│   │   ├── endpoints/          # Route handlers (documents, search, system)
+│   │   └── router.py           # Main API router configuration
+│   ├── core/                   # Core infrastructure
+│   │   ├── config.py           # Environment configuration (Pydantic settings)
+│   │   └── vector_store.py     # Qdrant client wrapper
+│   ├── ingestion/              # Document Processing Pipeline
+│   │   ├── document_loader.py  # PDF/DOCX parsing logic
+│   │   ├── pipeline.py         # Main processing orchestration
+│   │   └── text_splitter.py    # Intelligent text chunking
+│   ├── models/                 # AI/ML Models
+│   │   └── ner.py              # GLiNER wrapper for NER and Classification
+│   ├── retrieval/              # Search & RAG Logic
+│   │   ├── rag.py              # RAG chain implementation
+│   │   └── searcher.py         # Semantic search logic
+│   ├── services/               # Business Logic Layer
+│   │   └── document_service.py # Coordinator for uploads and document management
+│   ├── storage/                # Storage Clients
+│   │   └── minio_client.py     # MinIO wrapper
+│   ├── main.py                 # FastAPI application entry point
+│   └── tasks.py                # Celery task definitions
+├── data/                       # Persistent data storage (mapped to Docker volumes)
+├── docs/                       # Project documentation
+├── test/                       # Unit and integration tests
+├── Dockerfile                  # Multi-stage Docker build definition
+├── docker-compose.yml          # Local development environment orchestration
+└── requirements.txt            # Python dependencies
+```
+
+## 2. API Endpoints
+
+The API is organized into three main modules:
+
+### 2.1 Documents (`/documents`)
+- **POST `/upload`**: Uploads a file (PDF/DOCX/JSON). It saves the file to MinIO and triggers an asynchronous processing task. Returns a `task_id`.
+- **GET `/status/{task_id}`**: Checks the progress of a processing task (e.g., "processing", "completed").
+- **GET `/documents/{doc_id}`**: Retrieves details of a processed document, including its classification, extracted entities, and metadata.
+- **DELETE `/documents/{doc_id}`**: Removes a document and its associated vector embeddings from the system.
+
+### 2.2 Search & RAG (`/search`, `/chat`)
+- **GET `/search`**: Performs semantic search on the document collection. Supports filtering by:
+    - `q`: Query text.
+    - `entity_filter`: Filter by presence of specific entities (e.g., "money").
+    - `category_filter`: Filter by document type (e.g., "contract").
+- **POST `/chat`**: RAG (Retrieval-Augmented Generation) endpoint. Accepts a natural language question, retrieves relevant context from Qdrant, and generates an answer using the LLM (OpenRouter).
+
+### 2.3 System (`/health`)
+- **GET `/health`**: Simple health check to verify the API is running and responsive.
+
+## 3. Document Processing Pipeline
+
+The document processing flow is designed to be robust and asynchronous:
+
+1.  **Ingestion (API):**
+    - User uploads a file via `POST /upload`.
+    - API saves the raw file to **MinIO**.
+    - API pushes a `process_document` task to **Redis**.
+    - API returns a `task_id` immediately (non-blocking).
+
+2.  **Processing (Worker):**
+    - **Celery Worker** picks up the task from Redis.
+    - **Download:** Worker downloads the file from MinIO to local temporary storage.
+    - **Loading:** `DocumentLoader` parses the file.
+        - *PDFs:* Uses `pdfplumber` to extract text and **tables** (converted to Markdown).
+    - **Classification:** The full text is passed to **GLiNER** to classify the document type (e.g., "invoice", "contract").
+    - **Splitting:** `HierarchicalSplitter` chunks the text, respecting document headers/sections.
+    - **Enrichment (NER):** Each chunk is processed by **GLiNER** to extract entities (Persons, Dates, Money, etc.).
+    - **Embedding:** Chunks are converted to vectors using **HuggingFace Embeddings**.
+    - **Indexing:** Vectors + Metadata (Entities, Category, Source) are upserted to **Qdrant**.
+
+3.  **Completion:**
+    - Worker updates task status to "SUCCESS".
+    - Temporary files are cleaned up.
+
+## 4. Model Selection Justification
+
+### 4.1 Named Entity Recognition (NER) & Classification
+**Selected Model:** `fastino/gliner2-base-v1` (GLiNER)
+
+**Justification:**
+- **Zero-Shot Capabilities:** Unlike traditional BERT-based NER models that require training on specific labels, GLiNER allows us to define arbitrary entity types (e.g., "financial_metric", "fiscal_period") at runtime without retraining.
+- **Performance/Size Balance:** The "base" version offers an excellent trade-off between inference speed and accuracy, suitable for CPU inference in cost-effective workers.
+- **Unified Architecture:** We use the same model instance for both Entity Extraction and Document Classification, reducing memory footprint.
+
+### 4.2 Embeddings
+**Selected Model:** `sentence-transformers` (via `LangChain`)
+
+**Justification:**
+- **State-of-the-Art Performance:** Sentence Transformers provide high-quality dense vector representations optimized for semantic search.
+- **Local Execution:** Can run locally within the container, avoiding external API latency and costs (data privacy).
+- **Compatibility:** Fully compatible with Qdrant's cosine distance metric.
+
+## 5. Scalability & Performance
+
+### 5.1 Horizontal Scaling
+- **Stateless API:** The FastAPI layer is stateless. We can scale it horizontally (add more replicas) behind a Load Balancer to handle increased HTTP traffic.
+- **Decoupled Workers:** The heavy lifting (PDF parsing, Inference) happens in Celery workers. We can scale the number of worker containers independently based on queue depth (Redis) and CPU utilization.
+
+### 5.2 Database Scaling
+- **Qdrant:** Supports distributed deployment with sharding. As the vector index grows, we can add more Qdrant nodes.
+- **MinIO/S3:** Object storage is inherently scalable for massive amounts of document data.

@@ -11,7 +11,7 @@ class GLINERExtractor:
         """
         Inicializa GLiNER2-large-v1.
         Args:
-            model_name: Modelo HF (default: fastino/gliner2-large-v1).
+            model_name: Modelo HF (default: fastino/gliner2-base-v1).
             device: "cpu" o "cuda" (recomendado CPU para escalabilidad).
         """
         try:

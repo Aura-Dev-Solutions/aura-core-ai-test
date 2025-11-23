@@ -2,7 +2,6 @@ import pytest
 import httpx
 import time
 
-# URL base de tu API (funciona tanto en local como en Docker)
 BASE_URL = "http://0.0.0.0:8000"
 
 
@@ -33,7 +32,7 @@ def test_api_is_up():
 
 def test_health_endpoint():
     """Test explícito del endpoint /health (recomendado)"""
-    # Primero aseguramos que la API está arriba
+
     wait_for_api()
     
     response = httpx.get(f"{BASE_URL}/health", timeout=5.0)
@@ -48,5 +47,5 @@ def test_openapi_json():
     response = httpx.get(f"{BASE_URL}/openapi.json", timeout=5.0)
     assert response.status_code == 200
     openapi = response.json()
-    assert openapi["info"]["title"] == "Aura RAG API"  # o el título que tengas
+    assert openapi["info"]["title"] == "Aura RAG API" 
     assert "paths" in openapi

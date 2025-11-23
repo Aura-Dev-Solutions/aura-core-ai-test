@@ -1,4 +1,3 @@
-# app/storage/minio_client.py
 from minio import Minio
 from app.config import settings
 from loguru import logger
