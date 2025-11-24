@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "api_version": "v1.2",
+    "generated_at": "2023-10-27T14:30:00Z",
+    "source_system": "CoreBanking_Mock"
+  },
+  "data": {
+    "customer": {
+      "id": "CUST-882910",
+      "name": "Juan Pérez",
+      "email": "juan.perez@example.com",
+      "risk_profile": "low",
+      "kyc_status": "verified"
+    },
+    "financial_summary": {
+      "currency": "USD",
+      "total_assets": 15450.00,
+      "total_liabilities": 1200.50,
+      "net_worth": 14249.50
+    },
+    "accounts": [
+      {
+        "account_id": "ACC-1001",
+        "type": "checking",
+        "name": "Cuenta Nómina Principal",
+        "balance": {
+          "current": 4500.00,
+          "available": 4500.00
+        },
+        "currency": "USD",
+        "status": "active",
+        "last_activity": "2023-10-26"
+      },
+      {
+        "account_id": "ACC-1002",
+        "type": "savings",
+        "name": "Ahorro Meta 2024",
+        "balance": {
+          "current": 10950.00,
+          "available": 10950.00
+        },
+        "currency": "USD",
+        "interest_rate": 0.045,
+        "status": "active"
+      },
+      {
+        "account_id": "CRD-5501",
+        "type": "credit_card",
+        "name": "Visa Platinum",
+        "balance": {
+          "current": -1200.50,
+          "limit": 5000.00,
+          "available_credit": 3799.50
+        },
+        "currency": "USD",
+        "status": "active",
+        "next_payment_date": "2023-11-15"
+      }
+    ],
+    "recent_transactions": [
+      {
+        "transaction_id": "TXN-9981",
+        "account_id": "ACC-1001",
+        "date": "2023-10-26T10:15:00Z",
+        "description": "STARBUCKS COFFEE",
+        "category": "food_and_drink",
+        "amount": -5.50,
+        "currency": "USD",
+        "type": "debit",
+        "status": "completed"
+      },
+      {
+        "transaction_id": "TXN-9982",
+        "account_id": "ACC-1001",
+        "date": "2023-10-25T09:00:00Z",
+        "description": "TRANSFERENCIA DE NOMINA",
+        "category": "income",
+        "amount": 2500.00,
+        "currency": "USD",
+        "type": "credit",
+        "status": "completed"
+      },
+      {
+        "transaction_id": "TXN-9983",
+        "account_id": "CRD-5501",
+        "date": "2023-10-24T19:30:00Z",
+        "description": "UBER TRIP",
+        "category": "transportation",
+        "amount": -15.20,
+        "currency": "USD",
+        "type": "debit",
+        "status": "pending"
+      },
+      {
+        "transaction_id": "TXN-9984",
+        "account_id": "ACC-1001",
+        "date": "2023-10-23T14:00:00Z",
+        "description": "PAGO DE ALQUILER",
+        "category": "housing",
+        "amount": -1200.00,
+        "currency": "USD",
+        "type": "debit",
+        "status": "completed"
+      },
+      {
+        "transaction_id": "TXN-9985",
+        "account_id": "CRD-5501",
+        "date": "2023-10-22T20:00:00Z",
+        "description": "NETFLIX SUBSCRIPTION",
+        "category": "entertainment",
+        "amount": -14.99,
+        "currency": "USD",
+        "type": "debit",
+        "status": "completed"
+      }
+    ]
+  }
+}
