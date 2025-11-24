@@ -6,6 +6,8 @@ document_service = DocumentService()
 
 @router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
+    if file.content_type != "application/pdf" or not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Invalid file format. Only PDF,DOCX,JSON files are supported.")
     return await document_service.upload_document(file)
 
 @router.get("/status/{task_id}")

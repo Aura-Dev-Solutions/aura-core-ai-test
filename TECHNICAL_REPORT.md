@@ -97,6 +97,31 @@ The application relies on environment variables for configuration. A `.env` file
 | | `MINIO_BUCKET` | Name of the bucket to store documents. |
 | | `MINIO_SECURE` | Boolean (`true`/`false`) for SSL/TLS. |
 
+### 1.4.1 Example Configuration
+
+```bash
+# Qdrant
+QDRANT_HOST=qdrant
+QDRANT_PORT=6333
+QDRANT_COLLECTION=documents
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+
+# OpenRouter
+OPENROUTER_API_KEY=sk-or-v1-...
+OPENROUTER_MODEL=openai/gpt-4o
+
+# Celery
+CELERY_BROKER_URL=redis://redis:6379/0
+CELERY_RESULT_BACKEND=redis://redis:6379/0
+
+# MinIO
+MINIO_ENDPOINT=minio:9000
+MINIO_ACCESS_KEY=minioadmin
+MINIO_SECRET_KEY=minioadmin
+MINIO_BUCKET=aura-docs
+MINIO_SECURE=false
+```
+
 ## 2. API Endpoints
 
 The API is organized into three main modules:
@@ -156,7 +181,7 @@ The document processing flow is designed to be robust and asynchronous:
 **Selected Model:** `sentence-transformers/all-MiniLM-L6-v2`
 
 **Justification:**
-- **Efficiency:** This is a lightweight model ("chiquito") optimized for speed and low memory usage, making it ideal for local execution in a containerized environment.
+- **Efficiency:** This is a lightweight model optimized for speed and low memory usage, making it ideal for local execution in a containerized environment.
 - **Flexibility:** The system is designed to be model-agnostic; other HuggingFace models can be easily swapped in by updating the configuration if higher accuracy or different language support is needed.
 - **Local Execution:** Runs entirely locally, ensuring data privacy and zero latency from external API calls.
 - **Compatibility:** Fully compatible with Qdrant's cosine distance metric.
