@@ -5,12 +5,11 @@ from sentence_transformers import SentenceTransformer
 
 from app.config import EMBEDDINGS_MODEL_NAME
 
+_MAX_CHARS = 10_000
+
 @lru_cache(maxsize=1)
 def _get_model() -> SentenceTransformer:
     """
-    Input:
-      - None (uses EMBEDDINGS_MODEL_NAME from config).
-
     Process:
       - Load Sentence-Transformers model once and cache it.
 
@@ -24,14 +23,28 @@ def _get_model() -> SentenceTransformer:
 def generate_embeddings(text: str) -> List[float]:
     """
     Input:
-      - text: input text (document or query).
+      - text: raw text to encode as a vector.
 
     Process:
-      - Encode text into a dense vector using the Sentence-Transformers model.
+      - Normalize and trim input.
+      - Short-circuit empty input.
+      - Optionally truncate very long texts.
+      - Encode using SentenceTransformer.
 
     Output:
-      - Embedding vector as a list of floats.
+      - List of floats representing the embedding vector.
     """
+    cleaned = (text or "").strip()
+    if not cleaned:
+        return []
+
+    if len(cleaned) > _MAX_CHARS:
+        cleaned = cleaned[:_MAX_CHARS]
+
     model = _get_model()
-    vector = model.encode([text])[0]
-    return vector.tolist()
+    vector = model.encode(cleaned)
+    # Ensure we always return a plain Python list
+    try:
+        return vector.tolist()
+    except AttributeError:
+        return list(map(float, vector))

@@ -1,18 +1,25 @@
 from typing import Any, Dict, Tuple
+import io
+
+from docx import Document
+
 
 def extract(raw: bytes) -> Tuple[str, Dict[str, Any]]:
     """
     Input:
-      - raw: raw DOCX bytes (simplified, treated as UTF-8 text here).
+      - raw: raw DOCX bytes.
 
     Process:
-      - Decode bytes as UTF-8.
-      - Build a basic empty structure dict.
+      - Parse the DOCX file using python-docx.
+      - Extract text from all paragraphs.
+      - Build a basic structure dict (placeholder for future metadata).
 
     Output:
       - text: extracted plain text.
-      - structure: empty dict (placeholder for future layout info).
+      - structure: dict with basic document structure info.
     """
-    text = raw.decode("utf-8", errors="ignore")
+    doc = Document(io.BytesIO(raw))
+    paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
+    text = "\n".join(paragraphs)
     structure: Dict[str, Any] = {}
     return text, structure

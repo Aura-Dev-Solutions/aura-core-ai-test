@@ -39,27 +39,27 @@ _CATEGORY_DEFINITIONS: List[Tuple[str, str]] = [
 def _cosine(a: List[float], b: List[float]) -> float:
     """
     Input:
-      - a, b: numeric vectors of the same length.
+      - a, b: embedding vectors for comparison.
 
     Process:
-      - Compute cosine similarity between both vectors.
+      - Validate that both vectors have the same length.
+      - Compute cosine similarity between the two vectors.
 
     Output:
-      - Similarity score in [-1, 1].
+      - Cosine similarity score in the range [-1, 1].
     """
-    dot = 0.0
-    norm_a = 0.0
-    norm_b = 0.0
+    if len(a) != len(b):
+        raise ValueError(
+            f"Cosine similarity requires vectors of the same length, "
+            f"got {len(a)} and {len(b)}."
+        )
 
-    for x, y in zip(a, b):
-        dot += x * y
-        norm_a += x * x
-        norm_b += y * y
-
-    if norm_a == 0.0 or norm_b == 0.0:
+    dot = sum(x * y for x, y in zip(a, b))
+    norm_a = math.sqrt(sum(x * x for x in a))
+    norm_b = math.sqrt(sum(y * y for y in b))
+    if norm_a == 0 or norm_b == 0:
         return 0.0
-
-    return dot / (math.sqrt(norm_a) * math.sqrt(norm_b))
+    return dot / (norm_a * norm_b)
 
 
 @lru_cache(maxsize=1)

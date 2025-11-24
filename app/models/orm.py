@@ -8,7 +8,7 @@ Base = declarative_base()
 
 class DocumentORM(Base):
     """
-      - Maps Python attributes to DB columns using SQLAlchemy.
+    Maps Python attributes to DB columns using SQLAlchemy.
     """
     __tablename__ = "documents"
 

@@ -1,13 +1,15 @@
 from dataclasses import dataclass
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
-from app.models.statuses import DocumentStatus
+from .statuses import DocumentStatus
+
 
 @dataclass
 class Document:
     """
-      - Acts as an in-memory representation of a document in the domain layer.
+    Acts as an in-memory representation of a document in the domain layer.
     """
+
     id: str
     filename: str
     content_type: str
@@ -16,4 +18,4 @@ class Document:
     structure: Optional[Dict[str, Any]] = None
     classification: Optional[Dict[str, Any]] = None
     entities: Optional[Dict[str, Any]] = None
-    embeddings: Optional[Any] = None
+    embeddings: Optional[List[float]] = None

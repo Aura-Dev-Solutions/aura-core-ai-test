@@ -13,29 +13,39 @@ def _get_nlp():
 
     Process:
       - Load a spaCy pipeline once and cache it.
+      - Raise a clear error if the model cannot be loaded.
 
     Output:
       - Loaded spaCy Language object.
     """
     model_name = NER_MODEL_NAME or "en_core_web_sm"
-    return spacy.load(model_name)
+    try:
+        return spacy.load(model_name)
+    except OSError as e:
+        raise RuntimeError(
+            f"Failed to load spaCy model '{model_name}'. "
+            f"Make sure it is installed: python -m spacy download {model_name}"
+        ) from e
 
 
 def run_ner(text: str) -> Dict[str, Any]:
     """
     Input:
-      - text: input text to analyze.
+      - text: plain text to analyze.
 
     Process:
-      - Run spaCy NER over the text.
-      - Collect entities with text, label and character offsets.
+      - If the text is empty, return an empty entity list.
+      - Otherwise, run NER using the configured spaCy pipeline.
 
     Output:
-      - Dict with key 'entities' containing a list of entities.
+      - Dict with a list of entities and basic attributes.
     """
-    nlp = _get_nlp()
-    doc = nlp(text)
+    cleaned = (text or "").strip()
+    if not cleaned:
+        return {"entities": []}
 
+    nlp = _get_nlp()
+    doc = nlp(cleaned)
     entities: List[Dict[str, Any]] = [
         {
             "text": ent.text,
@@ -45,5 +55,5 @@ def run_ner(text: str) -> Dict[str, Any]:
         }
         for ent in doc.ents
     ]
-
     return {"entities": entities}
+

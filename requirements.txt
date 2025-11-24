@@ -11,3 +11,4 @@ spacy
 scikit-learn
 joblib
 python-multipart
+python-docx

@@ -31,8 +31,8 @@ services:
     image: postgres:16
     container_name: document-db
     environment:
-      POSTGRES_USER: core_ai
-      POSTGRES_PASSWORD: core_ai
-      POSTGRES_DB: aura_core
+      POSTGRES_USER: ${POSTGRES_USER:-core_ai}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-core_ai}
+      POSTGRES_DB: ${POSTGRES_DB:-aura_core}
     ports:
       - "5432:5432"

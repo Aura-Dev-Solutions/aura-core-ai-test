@@ -14,7 +14,7 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, futu
 
 def init_db() -> None:
     """
-      - Create all tables defined by the ORM models.
+    Create all tables defined by the ORM models.
     """
     Base.metadata.create_all(bind=engine)
 

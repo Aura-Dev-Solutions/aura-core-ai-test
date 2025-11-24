@@ -35,7 +35,7 @@ Este archivo contiene texto muy sencillo sobre un tema en específico, puedes us
 2. Probar `POST /documents`:
    - Click en `POST /documents`.
    - `Try it out`.
-   - En `file`, seleccionar `docs/samples/test_document_ai_system.pdf`.
+   - En `file`, seleccionar `docs/samples/test_file_core.pdf`.
    - Ejecutar.
    - Verificar que la respuesta:
      - Tiene un `id`.
