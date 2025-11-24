@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+requests
+
+SQLAlchemy
+psycopg2-binary
+pydantic
+
+sentence-transformers
+spacy
+scikit-learn
+joblib
+python-multipart

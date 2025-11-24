@@ -1,114 +1,95 @@
-# Python engineer technical assessment
+# AURA Core AI – Document Analysis System
 
-## Overview
-Design and implement a Scalable Document Analysis System (pipeline) that leverages AI to process, analyze, and extract insights from large collections of documents while maintaining high performance and reliability.
+AURA Core AI es un sistema para analizar documentos con una estructura muy sencilla de título, contenido y conclusiones usando IA.  
+Permite:
 
-## Project Requirements
+- Subir documentos por **API**.
+- Guardarlos y extraer el contenido.
+- Clasificarlos por tema.
+- Detectar entidades dentro del contenido.
+- Hacer búsquedas sobre los documentos procesados.
 
-### Core System Requirements
+---
 
-1. Create a document processing service that can:
-   - Handle multiple document formats (PDF, DOCX, JSON)
-   - Process documents in parallel
-   - Extract text and maintain document structure
-   - Generate document embeddings
-   - Perform semantic search across documents
-   - Classify documents into categories
-   - Extract key information using custom NER models
+## Requisitos
 
-### Technical Requirements
+- Git
+- Docker Desktop 4.x.x o superior
 
-#### Python Implementation
-- Implement the solution using Python 
-- Create modular and extensible code
-- Include proper error handling and logging
-- Implement unit tests and integration tests
+---
 
-#### AI/ML Components
-- Implement document embedding generation using a model of your choice (explain your selection)
-- Create a custom NER model for information extraction
-- Implement a document classification system
-- Design a semantic search functionality
+## Step by Step
 
-#### Infrastructure
-- Containerize the solution using Docker
-- Create a docker-compose setup for local development
-- Design the system to be cloud-ready (No need to deploy the solution, just provide the architecture diagram)
+- Clonar el repositorio.
+- Copiar las variables del `.env.example`:
 
-## Evaluation Criteria
+```bash
+cp .env.example .env
+```
 
-Your solution will be evaluated based on:
+Nota: Los valores para que el proyecto pueda estar en funcionamiento viven en el archivo .env (este proceso sólo es por si se quieren adaptar los valores de forma personalizada).
 
-1. **Code Quality**
-   - Clean, readable, and maintainable code
-   - Proper use of design patterns
-   - Error handling and logging
-   - Testing coverage
-   - Documentation quality
+---
 
-2. **System Design**
-   - Architecture scalability
-   - Component isolation
-   - Resource efficiency
-   - Error resilience
-   - Monitoring capabilities
+## Cómo ejecutar el proyecto con Docker
 
-3. **AI Implementation**
-   - Model selection justification
-   - Implementation efficiency
-   - Accuracy and performance
-   - Training and evaluation methodology
+Desde la raíz del repositorio:
 
-4. **Innovation**
-   - Creative solutions to problems
-   - Unique features or improvements
-   - Performance optimizations
+```bash
+docker compose build
+docker compose up
+```
 
-## Deliverables
+Una vez que los servicios estén en ejecución:
 
-1. **Source Code**
-   - Complete source code with documentation (github repository, you can fork this or branch)
-   - Setup instructions
+- API: `http://localhost:8000`
+- Swagger (documentación interactiva): `http://localhost:8000/docs`
 
-2. **Documentation**
-   - System architecture diagram
-   - Model selection justification
-   - Performance analysis
-   - Scaling considerations
+---
 
-3. **Docker Configuration**
-   - Environment configuration
-   - Build and run instructions
+## Estructura del proyecto
 
-4. **Presentation**
-   - Brief presentation explaining:
-     - Architecture decisions
-     - Model selections
-     - Scaling strategy
-     - Future improvements
+El código está organizado por responsabilidad, para que cada parte tenga un propósito claro:
 
-## Bonus Points
+```text
+app/
+  main.py
+  api/
+  domain/
+  models/
+  files/
+  ml/
+  config.py
+tools/
+  folder_watcher.py
+docs/
+  README.md
+  ml/
+  api/
+  test/
+```
 
-- Implementation of A/B testing for model deployment
-- Advanced monitoring and alerting setup
-- Performance optimization techniques
-- Novel approaches to document processing
-- Advanced caching strategies
+- `app/api`: todo lo relacionado con la API (endpoints HTTP).
+- `app/domain`: lógica de negocio (ingestar, procesar y buscar documentos).
+- `app/models`: modelos de datos, entidades, esquemas y acceso a base de datos.
+- `app/files`: manejo de archivos físicos y extracción de texto.
+- `app/ml`: modelos y lógica de Machine Learning.
+- `tools/folder_watcher.py`: proceso considerado para tomar archivos de una carpeta en específico (Nice to have - No implementado).
+- `docs/`: documentación más detallada del proyecto.
 
-## Time Allocation
+Esta estructura ayuda a que sea más fácil cambiar o mejorar una parte (por ejemplo, el modelo de ML o la base de datos) sin afectar el resto del sistema.
 
-- Candidates should spend 3-5 days on this project
-- Focus on demonstrating knowledge rather than completing every feature
-- Prioritize core functionality and code quality
-- Document any assumptions and future improvements
+---
 
-## Notes
+## Documentación detallada
 
-- You can use any open-source libraries and models
-- Explain your choice of technologies and frameworks
-- Include any assumptions made during implementation
-- Document known limitations and potential improvements
-- Focus on demonstrating your problem-solving approach
-- Create a clear path for scaling the solution
+La explicación completa del sistema está dividida en varias secciones dentro de `docs/`:
 
-### Very important: you can request information about the test and communicate via email to otorres@auraresearch.ai / igutierrez@auraresearch.ai or create an issue in this repository to resolve doubts and discuss technical proposals. Communication and way of working will be evaluated. Not all points are indispensable, but a good argumentation of the architecture/pipeline is required.
+- [Machine Learning](docs/001_ML.md)  
+  Detalles de los modelos de IA: embeddings, clasificación y NER.
+
+- [API](docs/002_API.md)  
+  Endpoints disponibles, uso de Swagger y ejemplos de uso.
+
+- [Tests y validación](docs/test/README.md)  
+  Cómo probar el sistema, flujo de validación y archivos de prueba.

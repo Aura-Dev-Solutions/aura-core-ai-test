@@ -1,0 +1,38 @@
+services:
+  app:
+    build: .
+    container_name: app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    working_dir: /code
+    volumes:
+      - .:/code
+      - ./data/inbox:/data/inbox
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  folder-watcher:
+    build: .
+    container_name: folder-watcher
+    command: python tools/folder_watcher.py
+    working_dir: /code
+    volumes:
+      - .:/code
+      - ./data/inbox:/data/inbox
+    env_file:
+      - .env
+    depends_on:
+      - app
+
+  db:
+    image: postgres:16
+    container_name: document-db
+    environment:
+      POSTGRES_USER: core_ai
+      POSTGRES_PASSWORD: core_ai
+      POSTGRES_DB: aura_core
+    ports:
+      - "5432:5432"
