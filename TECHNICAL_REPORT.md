@@ -122,6 +122,13 @@ MINIO_BUCKET=aura-docs
 MINIO_SECURE=false
 ```
 
+### 1.5 Sample Data
+The `data/samples` directory contains example files that can be used to test the system's ingestion and processing capabilities:
+
+- **`DatosFinancieros.pdf`**: A sample financial document to test table extraction and financial entity recognition.
+- **`contrato.pdf`**: A sample legal contract to test classification and entity extraction in a legal context.
+- **`DataPrueba.json`**: A JSON file containing sample data for testing purposes.
+
 ## 2. API Endpoints
 
 The API is organized into three main modules:
