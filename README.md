@@ -137,4 +137,4 @@ A written document covering:
 
 Fork or branch this repository. Submit a pull request or share your repository link when complete.
 
-**Questions?** Reach out via email to **otorres@auraresearch.ai** / **igutierrez@auraresearch.ai** or open an issue in this repository. Communication is valued — asking good questions is a positive signal, not a weakness.
+**Questions?** Reach out via email to **otorres@auraresearch.ai** / **eredonda@auraresearch.ai** or open an issue in this repository. Communication is valued — asking good questions is a positive signal, not a weakness.
