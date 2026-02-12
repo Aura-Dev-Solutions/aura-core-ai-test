@@ -1,0 +1,1175 @@
+[
+  {
+    "feature_id": "FEAT-001",
+    "title": "Biometric login with Face ID and fingerprint",
+    "description": "Support device biometric authentication as a convenient alternative to password entry, backed by secure enclave token storage.",
+    "product_area": "mobile",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-01-12",
+    "tags": [
+      "biometrics",
+      "native-app"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-002",
+    "title": "Calculated fields and custom metrics",
+    "description": "Support user-defined calculated fields using a formula editor, enabling custom KPIs derived from existing data columns. Ref: ENG-{num}",
+    "product_area": "reporting",
+    "status": "planned",
+    "priority": "p2",
+    "release_date": "2025-03-26",
+    "tags": [
+      "reports",
+      "analytics",
+      "pivot-tables"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-003",
+    "title": "Fuzzy matching and typo tolerance",
+    "description": "Handle misspellings and approximate matches using edit-distance algorithms so that minor typos do not prevent users from finding results.",
+    "product_area": "search",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": "2025-03-05",
+    "tags": [
+      "fuzzy-match",
+      "relevance",
+      "typeahead"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-004",
+    "title": "Faceted search with dynamic filter counts",
+    "description": "Display faceted navigation panels showing available filter options with document counts that update dynamically as filters are applied. Addresses FEAT-{num}.",
+    "product_area": "search",
+    "status": "in_progress",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "faceted",
+      "filters",
+      "relevance"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-005",
+    "title": "Google Sheets live import connector",
+    "description": "Import data directly from a Google Sheet URL with automatic schema detection and optional recurring sync on a schedule. Ref: ENG-{num}",
+    "product_area": "data-import",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "csv",
+      "bulk-import",
+      "column-mapping"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-006",
+    "title": "Drag-and-drop widget layout editor",
+    "description": "Allow users to compose dashboards by dragging chart, table, and metric widgets onto a responsive grid with snap-to-grid alignment.",
+    "product_area": "dashboard",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-05-04",
+    "tags": [
+      "widgets",
+      "layout"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-007",
+    "title": "Mobile push notifications",
+    "description": "Deliver real-time push notifications to iOS and Android devices for critical alerts, mentions, and task assignments.",
+    "product_area": "notifications",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "push",
+      "alerts"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-008",
+    "title": "Background sync and conflict resolution",
+    "description": "Sync data changes made offline in the background when connectivity resumes, with automatic conflict detection and resolution strategies.",
+    "product_area": "mobile",
+    "status": "planned",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "offline",
+      "native-app"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-009",
+    "title": "Presentation mode for TV displays and meetings",
+    "description": "Provide a full-screen presentation mode that cycles through dashboard tabs on a configurable timer, optimized for wall-mounted displays.",
+    "product_area": "dashboard",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "presentation",
+      "layout",
+      "themes"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-010",
+    "title": "Jira issue tracking integration",
+    "description": "Link platform entities to Jira issues, sync status changes bidirectionally, and surface Jira context within the product interface. Tracked in TASK-{num}.",
+    "product_area": "integrations",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "third-party",
+      "connectors",
+      "sync"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-011",
+    "title": "GraphQL API endpoint",
+    "description": "Expose a GraphQL endpoint enabling clients to query exactly the data they need with nested relations, reducing over-fetching and round trips.",
+    "product_area": "api",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-08-14",
+    "tags": [
+      "graphql",
+      "endpoints",
+      "developer"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-012",
+    "title": "Webhook subscription management API",
+    "description": "Allow consumers to programmatically register, list, update, and delete webhook subscriptions for any event type via a dedicated API resource. Addresses FEAT-2956.",
+    "product_area": "api",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-09-15",
+    "tags": [
+      "webhooks",
+      "endpoints",
+      "rest"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-013",
+    "title": "SCIM 2.0 automated user provisioning",
+    "description": "Enable automated user lifecycle management through SCIM 2.0, syncing user creation, updates, and deactivation from identity providers. See JIRA-{num} for implementation details.",
+    "product_area": "user-management",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-07-12",
+    "tags": [
+      "scim",
+      "sso",
+      "teams"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-014",
+    "title": "CSV import wizard with preview and validation",
+    "description": "Guide users through CSV upload with a step-by-step wizard showing data preview, column type detection, validation errors, and import confirmation.",
+    "product_area": "data-import",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-02-23",
+    "tags": [
+      "csv",
+      "validation",
+      "column-mapping"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-015",
+    "title": "Tablet-optimized split-view layout",
+    "description": "On tablets, provide a split-view layout with a navigation list on the left and detail pane on the right, taking advantage of larger screens. Related: PROJ-{num}",
+    "product_area": "mobile",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "responsive",
+      "native-app",
+      "android"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-016",
+    "title": "Consolidated billing for multi-org accounts",
+    "description": "Allow parent organizations to receive a single consolidated invoice covering all subsidiary accounts with itemized breakdowns.",
+    "product_area": "billing",
+    "status": "shipped",
+    "priority": "p3",
+    "release_date": "2024-02-08",
+    "tags": [
+      "invoices",
+      "billing-portal",
+      "subscriptions"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-017",
+    "title": "Daily and weekly digest emails",
+    "description": "Send consolidated digest emails summarizing key metrics, recent alerts, and activity highlights on a daily or weekly schedule. Related: PROJ-{num}",
+    "product_area": "notifications",
+    "status": "deprecated",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "digest",
+      "email"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-018",
+    "title": "Pivot table support in reports",
+    "description": "Add pivot table capabilities allowing users to dynamically rearrange rows, columns, and aggregate measures within a report view.",
+    "product_area": "reporting",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-08-03",
+    "tags": [
+      "pivot-tables",
+      "analytics",
+      "reports"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-019",
+    "title": "Unified notification center with inbox",
+    "description": "Provide an in-app notification center aggregating all alerts, mentions, and system messages with read/unread state and bulk actions.",
+    "product_area": "notifications",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-07-20",
+    "tags": [
+      "in-app",
+      "alerts"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-020",
+    "title": "Search REST API for external consumers",
+    "description": "Expose a search API endpoint allowing external applications and integrations to execute search queries programmatically.",
+    "product_area": "search",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "full-text",
+      "relevance"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-021",
+    "title": "Zapier connector with 50+ triggers and actions",
+    "description": "Provide a Zapier integration enabling no-code workflows with thousands of external applications via triggers and action events.",
+    "product_area": "integrations",
+    "status": "deprecated",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "automation",
+      "connectors",
+      "third-party"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-022",
+    "title": "SSO and SAML 2.0 federation",
+    "description": "Support enterprise single sign-on via SAML 2.0 identity providers including Okta, Azure AD, and OneLogin with JIT user provisioning.",
+    "product_area": "integrations",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-01-24",
+    "tags": [
+      "sso",
+      "oauth",
+      "third-party"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-023",
+    "title": "Search result permissions and access filtering",
+    "description": "Ensure search results respect the current user's access permissions, filtering out records and dashboards the user is not authorized to view.",
+    "product_area": "search",
+    "status": "deprecated",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "full-text",
+      "filters",
+      "indexing"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-024",
+    "title": "Configurable password policies",
+    "description": "Allow admins to enforce password complexity requirements, rotation intervals, breach detection, and account lockout thresholds.",
+    "product_area": "user-management",
+    "status": "deprecated",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "authentication",
+      "mfa"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-025",
+    "title": "PDF and CSV export for all report types",
+    "description": "Enable one-click export of any report to PDF or CSV format, preserving layout, filters, and formatting. See JIRA-{num} for implementation details.",
+    "product_area": "reporting",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-05-14",
+    "tags": [
+      "export",
+      "pdf",
+      "csv"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-026",
+    "title": "Mobile dashboard with responsive widgets",
+    "description": "Display dashboards with widgets automatically reflowed for mobile viewports, supporting touch-based filtering and drill-down interactions.",
+    "product_area": "mobile",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "responsive",
+      "native-app",
+      "ios"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-027",
+    "title": "Expanded chart library with 20+ visualization types",
+    "description": "Introduce new chart types including waterfall, funnel, treemap, heatmap, and Sankey diagrams to support diverse analytical needs. Related: PROJ-9556",
+    "product_area": "reporting",
+    "status": "deprecated",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "charts",
+      "analytics"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-028",
+    "title": "Import rollback and undo capability",
+    "description": "Allow users to fully undo a completed import within 48 hours, reverting all created and modified records to their pre-import state.",
+    "product_area": "data-import",
+    "status": "planned",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "bulk-import",
+      "validation"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-029",
+    "title": "Embeddable dashboard widgets via iframe",
+    "description": "Generate secure, token-authenticated embed codes for individual widgets or full dashboards to embed in external portals and applications.",
+    "product_area": "dashboard",
+    "status": "in_progress",
+    "priority": "p0",
+    "release_date": null,
+    "tags": [
+      "embedding",
+      "widgets"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-030",
+    "title": "Webhook forwarding for external systems",
+    "description": "Forward notification payloads to external webhook endpoints, enabling integration with custom alerting pipelines and third-party tools.",
+    "product_area": "notifications",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-08-24",
+    "tags": [
+      "webhooks",
+      "alerts",
+      "slack"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-031",
+    "title": "File and attachment content search",
+    "description": "Index the contents of uploaded files including PDFs, Word documents, and spreadsheets to include them in full-text search results. See JIRA-2572 for details.",
+    "product_area": "search",
+    "status": "in_progress",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "full-text",
+      "indexing"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-032",
+    "title": "Data drill-down from summary to row-level detail",
+    "description": "Allow users to click on any aggregated metric in a report to drill down into the underlying row-level data powering that number.",
+    "product_area": "reporting",
+    "status": "in_progress",
+    "priority": "p0",
+    "release_date": null,
+    "tags": [
+      "reports",
+      "analytics",
+      "charts"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-033",
+    "title": "SMS alert delivery for critical events",
+    "description": "Send SMS text messages for the most critical alerts to ensure delivery even when users are away from their devices or email. Ref: ENG-6697",
+    "product_area": "notifications",
+    "status": "deprecated",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "alerts",
+      "push",
+      "preferences"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-034",
+    "title": "Slack channel routing for alert categories",
+    "description": "Route different alert categories to specific Slack channels, with formatting options and the ability to thread related alerts. Tracked in TASK-{num}.",
+    "product_area": "notifications",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-09-13",
+    "tags": [
+      "slack",
+      "alerts",
+      "webhooks"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-035",
+    "title": "Rate limit dashboard and self-serve adjustments",
+    "description": "Provide a dashboard showing current API usage against rate limits, with the ability for customers to request or purchase higher limits.",
+    "product_area": "api",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "rate-limits",
+      "endpoints",
+      "developer"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-036",
+    "title": "Notification history and delivery log",
+    "description": "Maintain a searchable log of all sent notifications with delivery status, timestamps, and the ability to resend failed deliveries. Addresses FEAT-3253.",
+    "product_area": "notifications",
+    "status": "deprecated",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "in-app",
+      "email",
+      "alerts"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-037",
+    "title": "Mobile-responsive dashboard view",
+    "description": "Automatically reflow dashboard layouts for mobile screen sizes with collapsible widget sections and touch-optimized interactions. Related: PROJ-7560",
+    "product_area": "dashboard",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "layout",
+      "widgets",
+      "themes"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-038",
+    "title": "Multi-currency billing",
+    "description": "Support billing in multiple currencies with automatic exchange rate conversion, localized invoice formatting, and currency-specific payment methods.",
+    "product_area": "billing",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-02-09",
+    "tags": [
+      "payments",
+      "invoices",
+      "pricing"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-039",
+    "title": "Notification templates with variable substitution",
+    "description": "Provide customizable notification templates with merge fields for dynamic content such as metric values, user names, and timestamps.",
+    "product_area": "notifications",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "email",
+      "slack",
+      "preferences"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-040",
+    "title": "Annual and multi-year plan support",
+    "description": "Support annual and multi-year subscription plans with upfront or installment payment options, including prorated upgrades mid-term. Tracked in TASK-243.",
+    "product_area": "billing",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-02-22",
+    "tags": [
+      "subscriptions",
+      "pricing",
+      "payments"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-041",
+    "title": "Advanced search operators and query syntax",
+    "description": "Support boolean operators (AND, OR, NOT), field-specific search (status:active), date ranges, and quoted phrase matching. See JIRA-{num} for implementation details.",
+    "product_area": "search",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-01-07",
+    "tags": [
+      "full-text",
+      "filters"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-042",
+    "title": "Real-time data refresh with configurable intervals",
+    "description": "Support automatic dashboard refresh with user-configurable intervals from 10 seconds to 24 hours, with visual indicators of data freshness.",
+    "product_area": "dashboard",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-05-15",
+    "tags": [
+      "real-time",
+      "widgets"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-043",
+    "title": "KPI summary cards with trend indicators",
+    "description": "Add configurable KPI cards that display a primary metric, comparison period change, trend sparkline, and conditional color coding.",
+    "product_area": "dashboard",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-03-24",
+    "tags": [
+      "widgets",
+      "real-time"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-044",
+    "title": "Scoped API key permissions",
+    "description": "Enable fine-grained API key scoping so that each key can be restricted to specific resources, operations, and IP ranges.",
+    "product_area": "api",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-01-07",
+    "tags": [
+      "developer",
+      "endpoints",
+      "rest"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-045",
+    "title": "Typeahead suggestions with recent history",
+    "description": "Show real-time search suggestions as users type, combining popular queries, recent search history, and matching entity names.",
+    "product_area": "search",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-05-19",
+    "tags": [
+      "typeahead",
+      "relevance"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-046",
+    "title": "Global dashboard filters and cross-widget filtering",
+    "description": "Apply date range, segment, and dimension filters at the dashboard level that propagate to all widgets, with cross-filtering on widget click. See JIRA-{num} for implementation details.",
+    "product_area": "dashboard",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "filters",
+      "widgets",
+      "layout"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-047",
+    "title": "Batch operations API for bulk CRUD",
+    "description": "Support batch endpoints that accept arrays of operations in a single request, reducing latency and simplifying bulk data manipulation workflows. See JIRA-{num} for implementation details.",
+    "product_area": "api",
+    "status": "shipped",
+    "priority": "p3",
+    "release_date": "2024-04-10",
+    "tags": [
+      "endpoints",
+      "rest",
+      "developer"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-048",
+    "title": "Report sharing with granular permissions",
+    "description": "Allow users to share reports with specific teams or individuals, controlling whether recipients can view, edit, or duplicate the report.",
+    "product_area": "reporting",
+    "status": "shipped",
+    "priority": "p3",
+    "release_date": "2024-01-21",
+    "tags": [
+      "reports",
+      "analytics"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-049",
+    "title": "Dark mode and custom theme support",
+    "description": "Offer a dark color theme and allow organizations to apply custom brand colors, fonts, and logos across all dashboard elements. Addresses FEAT-2753.",
+    "product_area": "dashboard",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "themes",
+      "layout"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-050",
+    "title": "Pre-import validation preview with error highlighting",
+    "description": "Before committing an import, show a comprehensive validation report highlighting type mismatches, missing required fields, and constraint violations. Addresses FEAT-1107.",
+    "product_area": "data-import",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-02-03",
+    "tags": [
+      "validation",
+      "csv"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-051",
+    "title": "Do-not-disturb and quiet hours",
+    "description": "Allow users to set quiet hours and do-not-disturb windows during which non-critical notifications are silently queued for later delivery.",
+    "product_area": "notifications",
+    "status": "in_progress",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "preferences",
+      "in-app"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-052",
+    "title": "Enterprise SSO with SAML and OIDC",
+    "description": "Support single sign-on via SAML 2.0 and OpenID Connect identity providers, with automatic account linking and JIT provisioning. Tracked in TASK-8800.",
+    "product_area": "user-management",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-05-12",
+    "tags": [
+      "sso",
+      "authentication",
+      "teams"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-053",
+    "title": "API versioning with deprecation policy",
+    "description": "Implement a formal API versioning scheme with date-based versions, sunset headers, and a published deprecation timeline.",
+    "product_area": "api",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "rest",
+      "developer",
+      "endpoints"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-054",
+    "title": "SFTP scheduled imports",
+    "description": "Connect to customer SFTP servers on a configurable schedule to automatically fetch and import new data files with processing confirmation notifications.",
+    "product_area": "data-import",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-04-06",
+    "tags": [
+      "sftp",
+      "bulk-import"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-055",
+    "title": "Team-based access control and workspaces",
+    "description": "Organize users into teams that map to organizational units, each with independent workspace access, data visibility, and permission inheritance. Addresses FEAT-6050.",
+    "product_area": "user-management",
+    "status": "in_progress",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "teams",
+      "roles",
+      "permissions"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-056",
+    "title": "Incremental and delta import mode",
+    "description": "Support incremental imports that only process new or changed records since the last import run, based on a user-specified timestamp or ID column.",
+    "product_area": "data-import",
+    "status": "planned",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "bulk-import",
+      "validation"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-057",
+    "title": "Mobile data entry forms",
+    "description": "Support creating and editing records via mobile-optimized forms with smart input types, camera capture, and location auto-fill.",
+    "product_area": "mobile",
+    "status": "planned",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "native-app",
+      "ios",
+      "android"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-058",
+    "title": "Billing API for programmatic invoice access",
+    "description": "Expose a REST API allowing customers to programmatically retrieve invoices, payment history, and current subscription details.",
+    "product_area": "billing",
+    "status": "planned",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "invoices",
+      "payments",
+      "billing-portal"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-059",
+    "title": "Guest and external collaborator accounts",
+    "description": "Invite external users with limited, time-bound access to specific projects or dashboards without requiring a full seat license.",
+    "product_area": "user-management",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-01-02",
+    "tags": [
+      "permissions",
+      "teams",
+      "authentication"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-060",
+    "title": "Interactive API documentation portal",
+    "description": "Host an interactive API reference powered by OpenAPI specs with try-it-out functionality, code examples in multiple languages, and changelog. See JIRA-2041 for details.",
+    "product_area": "api",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "developer",
+      "rest",
+      "graphql"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-061",
+    "title": "Full-text search across all entity types",
+    "description": "Index and search across records, reports, dashboards, users, and documentation with relevance-ranked results and highlighted matches.",
+    "product_area": "search",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-06-09",
+    "tags": [
+      "full-text",
+      "relevance",
+      "indexing"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-062",
+    "title": "Salesforce bi-directional sync",
+    "description": "Sync accounts, contacts, and opportunity data between the platform and Salesforce with configurable field mappings and conflict resolution.",
+    "product_area": "integrations",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-02-04",
+    "tags": [
+      "third-party",
+      "sync",
+      "connectors"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-063",
+    "title": "Offline mode with local data cache",
+    "description": "Cache critical data locally so users can view dashboards, records, and reports without connectivity, with automatic sync when back online. See JIRA-{num} for implementation details.",
+    "product_area": "mobile",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-07-19",
+    "tags": [
+      "offline",
+      "native-app"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-064",
+    "title": "Multi-factor authentication enforcement",
+    "description": "Support TOTP, SMS, and hardware key second factors with organization-level policies to mandate MFA for all users or specific roles.",
+    "product_area": "user-management",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-02-27",
+    "tags": [
+      "mfa",
+      "authentication"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-065",
+    "title": "Shared dashboards with view and edit permissions",
+    "description": "Enable dashboard sharing across teams with role-based access controlling who can view, interact with filters, or edit the layout. See JIRA-5715 for details.",
+    "product_area": "dashboard",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-03-16",
+    "tags": [
+      "layout",
+      "filters"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-066",
+    "title": "Custom role and permission builder",
+    "description": "Allow admins to define custom roles with fine-grained permission sets controlling access to features, data scopes, and administrative actions. Ref: ENG-1765",
+    "product_area": "user-management",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-03-30",
+    "tags": [
+      "roles",
+      "permissions"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-067",
+    "title": "Duplicate detection and merge rules",
+    "description": "Detect potential duplicate records during import using configurable matching rules and allow users to choose merge, skip, or create-new strategies. See JIRA-4814 for details.",
+    "product_area": "data-import",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "deduplication",
+      "validation",
+      "bulk-import"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-068",
+    "title": "Custom alert rules with threshold conditions",
+    "description": "Allow users to define alert rules based on metric thresholds, trend deviations, or data anomalies with configurable evaluation frequency.",
+    "product_area": "notifications",
+    "status": "in_progress",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "alerts",
+      "email",
+      "webhooks"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-069",
+    "title": "Scheduled report delivery via email",
+    "description": "Users can schedule reports to be automatically generated and emailed to specified recipients on a daily, weekly, or monthly basis.",
+    "product_area": "reporting",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-05-17",
+    "tags": [
+      "reports",
+      "scheduled-reports",
+      "export"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-070",
+    "title": "Cursor-based pagination for all list endpoints",
+    "description": "Migrate all list endpoints from offset-based to cursor-based pagination to improve performance and consistency for large result sets.",
+    "product_area": "api",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-01-12",
+    "tags": [
+      "pagination",
+      "rest",
+      "endpoints"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-071",
+    "title": "Cross-workspace report aggregation",
+    "description": "Enable reports that pull data from multiple workspaces into a single unified view, useful for enterprise customers managing several business units. See JIRA-5568 for details.",
+    "product_area": "reporting",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-03-18",
+    "tags": [
+      "reports",
+      "analytics",
+      "export"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-072",
+    "title": "Slack workspace notifications",
+    "description": "Push alerts, report summaries, and activity notifications to designated Slack channels with customizable formatting. See JIRA-{num} for implementation details.",
+    "product_area": "integrations",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-06-19",
+    "tags": [
+      "third-party",
+      "automation",
+      "webhooks"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-073",
+    "title": "Searchable user directory with org chart",
+    "description": "Provide a directory view of all users with search, filters by role and team, and an optional org-chart visualization for management hierarchy.",
+    "product_area": "user-management",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "teams",
+      "roles",
+      "permissions"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-074",
+    "title": "Push notification deep-linking",
+    "description": "Tapping a push notification opens the relevant record, dashboard, or report directly within the mobile app with full context preserved. Addresses FEAT-1149.",
+    "product_area": "mobile",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-09-28",
+    "tags": [
+      "push-notifications",
+      "native-app",
+      "ios"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-075",
+    "title": "Microsoft Teams integration",
+    "description": "Deliver notifications, report snapshots, and interactive action cards directly to Microsoft Teams channels and group chats. See JIRA-4458 for details.",
+    "product_area": "integrations",
+    "status": "planned",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "third-party",
+      "automation",
+      "connectors"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-076",
+    "title": "Payment method management portal",
+    "description": "Allow users to add, remove, and set default payment methods including credit cards, ACH bank transfers, and wire transfer instructions.",
+    "product_area": "billing",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-02-15",
+    "tags": [
+      "payments",
+      "billing-portal"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-077",
+    "title": "Mobile-optimized report viewer",
+    "description": "Render reports in a touch-friendly, scrollable format optimized for small screens with swipe navigation between report pages.",
+    "product_area": "mobile",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-04-07",
+    "tags": [
+      "ios",
+      "android",
+      "responsive"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-078",
+    "title": "Search analytics and query performance dashboard",
+    "description": "Track search query volumes, zero-result rates, click-through patterns, and average response times to identify content gaps. Tracked in TASK-9693.",
+    "product_area": "search",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "relevance",
+      "indexing",
+      "full-text"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-079",
+    "title": "Usage-based billing metering",
+    "description": "Track and bill customers based on actual usage metrics such as API calls, data volume, or active users with configurable billing thresholds. Addresses FEAT-4516.",
+    "product_area": "billing",
+    "status": "in_progress",
+    "priority": "p1",
+    "release_date": null,
+    "tags": [
+      "subscriptions",
+      "pricing",
+      "billing-portal"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-080",
+    "title": "Google Sheets live push",
+    "description": "Automatically push query results or report data to a designated Google Sheet on a schedule or upon data change events.",
+    "product_area": "integrations",
+    "status": "in_progress",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "third-party",
+      "sync",
+      "automation"
+    ],
+    "quarter": "Q1-2024"
+  }
+]

@@ -1,114 +1,140 @@
-# Python engineer technical assessment
+# Technical Assessment
 
-## Overview
-Design and implement a Scalable Document Analysis System (pipeline) that leverages AI to process, analyze, and extract insights from large collections of documents while maintaining high performance and reliability.
+## User Research Intelligence Pipeline
 
-## Project Requirements
+### Context
 
-### Core System Requirements
+**InsightFlow** is a B2B SaaS analytics company. Our product teams have been conducting user research interviews across the organization for the past year, but the resulting data is scattered across tools, formats, and researcher notebooks. Leadership wants to extract structured product intelligence from this unstructured research — not manually, but through a systematic pipeline.
 
-1. Create a document processing service that can:
-   - Handle multiple document formats (PDF, DOCX, JSON)
-   - Process documents in parallel
-   - Extract text and maintain document structure
-   - Generate document embeddings
-   - Perform semantic search across documents
-   - Classify documents into categories
-   - Extract key information using custom NER models
+You have been given real (anonymized) research artifacts from three sources. Your task is to build a pipeline that transforms messy, unstructured interview data and researcher notes into structured product intelligence.
 
-### Technical Requirements
+---
 
-#### Python Implementation
-- Implement the solution using Python 
-- Create modular and extensible code
-- Include proper error handling and logging
-- Implement unit tests and integration tests
+## The Data
 
-#### AI/ML Components
-- Implement document embedding generation using a model of your choice (explain your selection)
-- Create a custom NER model for information extraction
-- Implement a document classification system
-- Design a semantic search functionality
+Three datasets are provided across two batches (`data/batch_1/` and `data/batch_2/`). Batch 1 is the initial load; batch 2 represents new research arriving later.
 
-#### Infrastructure
-- Containerize the solution using Docker
-- Create a docker-compose setup for local development
-- Design the system to be cloud-ready (No need to deploy the solution, just provide the architecture diagram)
+### Dataset A: Interview Transcripts (`interview_transcripts.json`)
 
-## Evaluation Criteria
+Behavioral (BDD-style) user research interviews. Each interview is a JSON object containing metadata and a full transcript of the conversation.
 
-Your solution will be evaluated based on:
+| Field | Type | Description |
+|---|---|---|
+| `interview_id` | string | Unique identifier (`INT-NNN`) |
+| `date` | string | When the interview was conducted |
+| `participant_id` | string | Participant identifier (`P-NNN`) |
+| `participant_role` | string | Participant's job role |
+| `participant_company_size` | string | Size of participant's company |
+| `interviewer` | string | Researcher who conducted the interview |
+| `interview_type` | string | Type of interview (`behavioral`, `usability`, `discovery`, `feedback`) |
+| `product_areas_discussed` | array | Product areas covered (when tagged by the researcher) |
+| `transcript` | string | Full interview transcript text |
+| `duration_minutes` | int | Interview length in minutes |
+| `recording_quality` | string | Audio/transcript quality (`good`, `fair`, `poor`) |
 
-1. **Code Quality**
-   - Clean, readable, and maintainable code
-   - Proper use of design patterns
-   - Error handling and logging
-   - Testing coverage
-   - Documentation quality
+**Batch 1:** ~40 interviews | **Batch 2:** ~12 interviews
 
-2. **System Design**
-   - Architecture scalability
-   - Component isolation
-   - Resource efficiency
-   - Error resilience
-   - Monitoring capabilities
+### Dataset B: Research Session Notes (`session_notes.csv`)
 
-3. **AI Implementation**
-   - Model selection justification
-   - Implementation efficiency
-   - Accuracy and performance
-   - Training and evaluation methodology
+Researcher notes taken during or after interviews and discovery sessions. Format and detail level vary significantly by researcher.
 
-4. **Innovation**
-   - Creative solutions to problems
-   - Unique features or improvements
-   - Performance optimizations
+| Column | Type | Description |
+|---|---|---|
+| `note_id` | string | Unique identifier (`RN-NNNN`) |
+| `created_at` | string | When the note was created |
+| `researcher` | string | Author of the note |
+| `related_interview_id` | string | Reference to an interview transcript (when available) |
+| `participant_id` | string | Participant the note is about |
+| `note_type` | string | Category (`observation`, `insight`, `pain_point`, `feature_request`, `quote`, `action_item`) |
+| `content` | string | Note content |
+| `product_area_tag` | string | Product area (when tagged) |
+| `priority` | string | Importance level (`high`, `medium`, `low`) |
+| `sentiment` | string | Observed sentiment (`positive`, `negative`, `neutral`, `mixed`) |
 
-## Deliverables
+**Batch 1:** ~250 notes | **Batch 2:** ~80 notes
 
-1. **Source Code**
-   - Complete source code with documentation (github repository, you can fork this or branch)
-   - Setup instructions
+### Dataset C: Product Backlog (`product_backlog.json`)
 
-2. **Documentation**
-   - System architecture diagram
-   - Model selection justification
-   - Performance analysis
-   - Scaling considerations
+The structured product backlog containing planned, in-progress, and shipped features.
 
-3. **Docker Configuration**
-   - Environment configuration
-   - Build and run instructions
+| Field | Type | Description |
+|---|---|---|
+| `feature_id` | string | Unique identifier (`FEAT-NNN`) |
+| `title` | string | Feature title |
+| `description` | string | Feature description |
+| `product_area` | string | Product area this feature belongs to |
+| `status` | string | Current status (`planned`, `in_progress`, `shipped`, `deprecated`) |
+| `priority` | string | Priority level (`p0`, `p1`, `p2`, `p3`) |
+| `release_date` | string | Release date for shipped items (ISO-8601) |
+| `tags` | array | Relevant tags |
+| `quarter` | string | Target or actual quarter (`Q1-2024`, `Q2-2024`, etc.) |
 
-4. **Presentation**
-   - Brief presentation explaining:
-     - Architecture decisions
-     - Model selections
-     - Scaling strategy
-     - Future improvements
+**Batch 1:** ~80 items | **Batch 2:** ~15 items
 
-## Bonus Points
+### Data Quality
 
-- Implementation of A/B testing for model deployment
-- Advanced monitoring and alerting setup
-- Performance optimization techniques
-- Novel approaches to document processing
-- Advanced caching strategies
+These are real-world research artifacts. They contain quality issues — inconsistent formats, missing values, varied transcription quality, and other problems you would expect from research data collected by multiple people over time. Discovering and handling these issues systematically is part of the assessment. Do not assume the data is clean.
 
-## Time Allocation
+---
 
-- Candidates should spend 3-5 days on this project
-- Focus on demonstrating knowledge rather than completing every feature
-- Prioritize core functionality and code quality
-- Document any assumptions and future improvements
+## Expected Outcomes
 
-## Notes
+Build a pipeline that produces the following. We care about **what** you deliver, not a specific implementation approach.
 
-- You can use any open-source libraries and models
-- Explain your choice of technologies and frameworks
-- Include any assumptions made during implementation
-- Document known limitations and potential improvements
-- Focus on demonstrating your problem-solving approach
-- Create a clear path for scaling the solution
+### 1. Unified Research Taxonomy
 
-### Very important: you can request information about the test and communicate via email to otorres@auraresearch.ai / igutierrez@auraresearch.ai or create an issue in this repository to resolve doubts and discuss technical proposals. Communication and way of working will be evaluated. Not all points are indispensable, but a good argumentation of the architecture/pipeline is required.
+Classify every interview and research note into product areas. The result should be a consistent, structured mapping from each research artifact to one or more product areas — even when the original data uses informal or inconsistent language.
+
+### 2. Product Area Intelligence Report
+
+For each product area, produce a structured summary that includes:
+- Volume of research mentions (interviews + notes)
+- Sentiment distribution from researcher observations and participant language
+- Key themes, pain points, and recurring feature requests
+- Related items from the product backlog (shipped and planned)
+- Gaps — areas with research signal but no corresponding backlog activity
+
+### 3. Incremental Processing
+
+When batch 2 arrives, your pipeline should process the new data **without reprocessing batch 1 from scratch**. Demonstrate that your architecture supports incremental updates.
+
+### 4. Design Documentation (`DESIGN.md`)
+
+A written document covering:
+- Your data model and architecture decisions
+- How you approached data quality issues (especially unstructured text)
+- Your AI/ML approach — what you used, why, and what alternatives you considered
+- Known limitations and what you would do differently with more time
+
+---
+
+## Guidelines
+
+- **Language:** Python
+- **AI approach:** Use any AI/ML technique you see fit — LLMs, embeddings, classical NLP, heuristics, or a combination. There is no single correct approach. Justify your choices.
+- **Infrastructure:** No Docker, cloud deployment, or CI/CD required. We want to see your thinking, not your DevOps skills.
+- **Reproducibility:** Your pipeline should be runnable with clear instructions.
+
+### What We Are Looking For
+
+- **Data modeling instincts** — how you structure messy, multi-source research data into something coherent
+- **NLP and text processing skill** — extracting structure from unstructured interview transcripts and varied note formats
+- **Systematic data quality handling** — not just fixing issues one by one, but building an approach
+- **Thoughtful AI application** — choosing the right tool for the job, not the flashiest
+- **Software design** — code that could evolve, not a one-off script
+- **Clear communication** — your DESIGN.md matters as much as your code
+
+### What We Are NOT Looking For
+
+- Perfect accuracy on every classification
+- Over-engineered infrastructure (Docker, microservices, etc.)
+- A specific tech stack or framework
+- Exhaustive test coverage — a few meaningful tests beat 100% coverage of trivial code
+
+---
+
+## Submission
+
+Fork or branch this repository. Submit a pull request or share your repository link when complete.
+
+**Questions?** Reach out via email to **otorres@auraresearch.ai** / **igutierrez@auraresearch.ai** or open an issue in this repository. Communication is valued — asking good questions is a positive signal, not a weakness.

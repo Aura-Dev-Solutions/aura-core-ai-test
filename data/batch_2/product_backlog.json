@@ -1,0 +1,221 @@
+[
+  {
+    "feature_id": "FEAT-081",
+    "title": "SSO and SAML 2.0 federation",
+    "description": "Support enterprise single sign-on via SAML 2.0 identity providers including Okta, Azure AD, and OneLogin with JIT user provisioning. Tracked in TASK-1267.",
+    "product_area": "integrations",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-12-14",
+    "tags": [
+      "sso",
+      "oauth",
+      "third-party"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-082",
+    "title": "Saved field mapping templates",
+    "description": "Allow users to save column-to-field mapping configurations as reusable templates for recurring imports from the same data source. See JIRA-{num} for implementation details.",
+    "product_area": "data-import",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "column-mapping",
+      "csv"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-083",
+    "title": "Microsoft Teams integration",
+    "description": "Deliver notifications, report snapshots, and interactive action cards directly to Microsoft Teams channels and group chats.",
+    "product_area": "integrations",
+    "status": "planned",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "third-party",
+      "automation",
+      "connectors"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-084",
+    "title": "Custom role and permission builder",
+    "description": "Allow admins to define custom roles with fine-grained permission sets controlling access to features, data scopes, and administrative actions.",
+    "product_area": "user-management",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-10-10",
+    "tags": [
+      "roles",
+      "permissions"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-085",
+    "title": "Billing API for programmatic invoice access",
+    "description": "Expose a REST API allowing customers to programmatically retrieve invoices, payment history, and current subscription details.",
+    "product_area": "billing",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "invoices",
+      "payments",
+      "billing-portal"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-086",
+    "title": "Salesforce bi-directional sync",
+    "description": "Sync accounts, contacts, and opportunity data between the platform and Salesforce with configurable field mappings and conflict resolution.",
+    "product_area": "integrations",
+    "status": "shipped",
+    "priority": "p0",
+    "release_date": "2024-10-16",
+    "tags": [
+      "third-party",
+      "sync",
+      "connectors"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-087",
+    "title": "Pre-built dashboard templates for common use cases",
+    "description": "Offer a gallery of ready-made dashboard templates for SaaS metrics, marketing analytics, support operations, and executive summaries. Related: PROJ-{num}",
+    "product_area": "dashboard",
+    "status": "deprecated",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "layout",
+      "widgets",
+      "themes"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-088",
+    "title": "Incremental and delta import mode",
+    "description": "Support incremental imports that only process new or changed records since the last import run, based on a user-specified timestamp or ID column.",
+    "product_area": "data-import",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "bulk-import",
+      "validation"
+    ],
+    "quarter": "Q3-2024"
+  },
+  {
+    "feature_id": "FEAT-089",
+    "title": "Team-based access control and workspaces",
+    "description": "Organize users into teams that map to organizational units, each with independent workspace access, data visibility, and permission inheritance.",
+    "product_area": "user-management",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "teams",
+      "roles",
+      "permissions"
+    ],
+    "quarter": "Q1-2024"
+  },
+  {
+    "feature_id": "FEAT-090",
+    "title": "SFTP scheduled imports",
+    "description": "Connect to customer SFTP servers on a configurable schedule to automatically fetch and import new data files with processing confirmation notifications.",
+    "product_area": "data-import",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-10-10",
+    "tags": [
+      "sftp",
+      "bulk-import"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-091",
+    "title": "Slack workspace notifications",
+    "description": "Push alerts, report summaries, and activity notifications to designated Slack channels with customizable formatting. See JIRA-{num} for implementation details.",
+    "product_area": "integrations",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-11-24",
+    "tags": [
+      "third-party",
+      "automation",
+      "webhooks"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-092",
+    "title": "Guest and external collaborator accounts",
+    "description": "Invite external users with limited, time-bound access to specific projects or dashboards without requiring a full seat license.",
+    "product_area": "user-management",
+    "status": "in_progress",
+    "priority": "p2",
+    "release_date": null,
+    "tags": [
+      "permissions",
+      "teams",
+      "authentication"
+    ],
+    "quarter": "Q4-2024"
+  },
+  {
+    "feature_id": "FEAT-093",
+    "title": "Typeahead suggestions with recent history",
+    "description": "Show real-time search suggestions as users type, combining popular queries, recent search history, and matching entity names.",
+    "product_area": "search",
+    "status": "shipped",
+    "priority": "p1",
+    "release_date": "2024-12-18",
+    "tags": [
+      "typeahead",
+      "relevance"
+    ],
+    "quarter": "Q1-2025"
+  },
+  {
+    "feature_id": "FEAT-094",
+    "title": "Search analytics and query performance dashboard",
+    "description": "Track search query volumes, zero-result rates, click-through patterns, and average response times to identify content gaps.",
+    "product_area": "search",
+    "status": "planned",
+    "priority": "p3",
+    "release_date": null,
+    "tags": [
+      "relevance",
+      "indexing",
+      "full-text"
+    ],
+    "quarter": "Q2-2024"
+  },
+  {
+    "feature_id": "FEAT-095",
+    "title": "Payment method management portal",
+    "description": "Allow users to add, remove, and set default payment methods including credit cards, ACH bank transfers, and wire transfer instructions.",
+    "product_area": "billing",
+    "status": "shipped",
+    "priority": "p2",
+    "release_date": "2024-12-21",
+    "tags": [
+      "payments",
+      "billing-portal"
+    ],
+    "quarter": "Q3-2024"
+  }
+]

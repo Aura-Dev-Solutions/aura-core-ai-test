@@ -1,0 +1,234 @@
+note_id,created_at,researcher,related_interview_id,participant_id,note_type,content,product_area_tag,priority,sentiment
+RN-0251,2024-10-10 16:27:18,Laura Martinez,,P-017,,mental model mismatch on API versioning placement,,medium,
+RN-0252,12/23/2024 09:56,David Kim,,P-109,observation,"""I always forget where billing history lives"" — participant spent ~2min navigating before finding it in payment section",,,
+RN-0253,12/08/2024 15:22,David Kim,INT-031,P-056,observation,"""This is actually pretty smooth, I like this"" — P-056 on the advanced filters flow in global search. One of the few unprompted positive comments in the session.",,,
+RN-0254,2024-12-25 22:14:29,Laura Martinez,,P-095,insight,trust gap: users verify chart builder externally (esto es un pain point importante),reporting,medium,mixed
+RN-0255,11/23/2024 14:38,Laura Martinez,INT-010,P-097,observation,P-097 used workaround for custom filters,,,
+RN-0256,2024-10-05 13:21:31,James Chen,INT-026,P-044,insight,"I think the real insight from today's session isn't about drill-down charts specifically but about the entire home screen workflow. When P-044 tried to integrate drill-down charts into their process, they revealed that their actual goal was three steps beyond what our feature supports. We're solving a sub-problem and users have to manually bridge the gap. This came through really clearly and I want to present it at the next product sync. — see JIRA-2302",,,
+RN-0257,2024-11-15 11:33:30,James Chen,,P-047,observation,"Watched the participant try to configure field mapping settings and they nailed it on the first try, which was a pleasant surprise given how much trouble P-047 had with the same task last week. The difference might be that this participant came from a data ingestion area background and already had the right mental model for where field mapping would be. So the design works, but only if you already think in this paradigm.",dataimport,low,
+RN-0258,11/23/2024 23:52,James Chen,,,Insight,"I think the real insight from today's session isn't about gesture controls specifically but about the entire responsive interface workflow. When P-??? tried to use gesture controls for their daily workflow, they revealed that their actual goal was three steps beyond what our feature supports. We're solving a sub-problem and users have to manually bridge the gap. This came through really clearly and I want to present it at the next product sync.",,medium,negative
+RN-0259,2024-10-06 16:17:27,James Chen,,P-070,observation,"The participant opened the dashboard area panel and immediately started scanning the left sidebar for dashboard templates. They didn't find it there so they tried the top nav, then the settings gear, then right-clicked to see if there was a context menu. Finally found it nested under an accordion they hadn't expanded. The whole thing took about 3 minutes. They were polite about it but you could tell they were annoyed. I want to compare this with the heatmap data from the last round to see if the click patterns match.",dashboard,high,
+RN-0260,10/15/2024 23:02,Laura Martinez,,P-024,participant_quote,"""fix this one thing"" - P-024 priority signal",notifications,,negative
+RN-0261,2024-10-13 14:54:01,Maria Santos,,P-031,action_item,"## Action Item
+- Task: Create competitive analysis of Zapier integration implementations
+- Owner: @Maria Santos
+- Evidence: Participants repeatedly mentioned competitor approaches when trying to fix the Zapier integration workflow in integrations hub
+- Priority: Medium
+- Deadline: Next sprint
+- Dependencies: Need licenses/access to competitor tools",integrations,high,
+RN-0262,10/18/2024 07:14,Laura Martinez,INT-007,P-064,action_item,schedule eng sync re: drill-down charts errors,,,neutral
+RN-0263,"December 22, 2024",Aisha Patel,INT-969,P-038,feature_request,"- realtime collab on batch import
+- team takes turns in import wizard
+- spreadsheet to track who's editing
+- wants Google Docs-style
+- see JIRA-{num}",,,
+RN-0264,2024-12-14 08:48:18,Aisha Patel,INT-013,P-033,insight,"- recurring theme: field mapping should be automatic
+- manual compare field mapping data across periods seen as burden
+- data upload section paradigm wrong
+- batch/auto > manual/on-demand
+- 3 participants independently said this",import,high,
+RN-0265,2024-11-22 16:40:07,Maria Santos,,P-119,quote,"## Participant Quote
+- Quote: ""This is the one thing in the product that actually works the way I expect""
+- Context: P-119 using dashboard sharing in main dashboard
+- Sentiment: Positive — rare unsolicited praise
+- Related Theme: Good UX patterns to replicate
+- Session Timestamp: ~15min mark @team",,high,mixed
+RN-0266,12/20/2024 06:16,James Chen,INT-028,P-034,observation,"So the participant started confidently in subscription area and seemed to know exactly what they wanted to do, which was set up invoice download. But then they hit this wall where invoice download wasn't where they expected it. They opened the help docs in a new tab and searched for it. The fact that they had to leave the product to figure this out is a red flag. Reminds me of the pattern @James Chen flagged in the last sprint review.",payments,low,positive
+RN-0267,"October 10, 2024",Maria Santos,,P-117,action_item,"## Action Item
+- Task: Add proration settings error states and recovery messages to payment section
+- Owner: @product to write specs, @eng to implement
+- Evidence: P-117 hit dead-end errors with no recovery path when trying to add missing proration settings capability
+- Priority: Critical
+- Deadline: Hotfix candidate
+- Dependencies: Need error taxonomy from @eng",Billing,,
+RN-0268,10/05/2024 03:13,Aisha Patel,INT-032,P-032,quote,"- ""my whole team was confused by this""
+- re: custom filters location
+- not individual confusion
+- team-wide IA issue
+- report builder needs restructuring",reporting,,neutral
+RN-0269,2024-12-18 12:19:19,Maria Santos,,P-037,pain_point,"## Pain Point
+- Issue: batch import performance degrades significantly with large datasets in import wizard
+- Severity: Medium-High — blocks power users
+- Frequency: Daily for teams with 10k+ records
+- User Impact: Users resort to manual export and external processing to load batch import results at scale
+- Suggested Fix: Optimize batch import query performance and add progress indicators",data-import,high,
+RN-0270,2024-11-29 12:18:53,David Kim,,P-015,observation,"""I always forget where gesture controls lives"" — participant spent ~2min navigating before finding it in mobile section",,medium,negative
+RN-0271,2024-12-24 18:09:47,James Chen,,P-114,insight,"One thing that keeps coming up is the disconnect between how we've organized user admin panel and how users think about their work. They don't think in terms of 'permission groups' as a discrete thing — it's part of a larger job-to-be-done that spans multiple product areas. The fact that they have to compare permission groups data across periods in one place and then go somewhere else to complete the workflow is the core friction, not any single UI element.",,low,
+RN-0272,"October 16, 2024",David Kim,INT-012,P-027,quote,"""This is the one thing that actually works the way I expect"" — P-027 on import scheduling in data ingestion area. Unprompted. Only positive comment in entire session.",,,
+RN-0273,2024-11-23 14:36:09,David Kim,,,quote,"""Before this tool it took three days. Now three hours. Still not great, but better."" — P-??? on field mapping for explain field mapping to a colleague. Mixed sentiment. Acknowledges progress.",import,medium,positive
+RN-0274,"November 9, 2024",Aisha Patel,,P-081,quote,"- ""my whole team was confused by this""
+- re: report templates location
+- not individual confusion
+- team-wide IA issue
+- reports section needs restructuring",reporting,high,
+RN-0275,2024-12-02 10:53:04,Laura Martinez,,P-003,action_item,escalate data loss bug in faceted search,,medium,
+RN-0276,11/19/2024 05:55,David Kim,,P-086,todo,"""This should be your top priority, seriously"" — P-086 on push notifications in responsive interface. Action: include verbatim in stakeholder readout. This kind of direct user prioritization carries weight. @David Kim to present. @laura",mob,high,mixed
+RN-0277,10/30/2024 19:20,laura martinez,INT-037,P-066,quote,"""I dread opening this"" - notification settings emotional response",Notifications,,
+RN-0278,12/04/2024 08:37,aisha patel,INT-011,,observation,"- payment section section
+- usr tried navigate to usage dashboard
+- used workaround instead of usage dashboard
+- didn't know feature existed
+- discovered by accident during session",,,
+RN-0279,"November 24, 2024",Maria Santos,,PART-062,quote,"## Participant Quote
+- Quote: ""I spend more time fighting chart builder than actually doing my job""
+- Context: PART-062 attempting to explain chart builder to a colleague in report builder
+- Sentiment: Negative — deep frustration with core workflow
+- Related Theme: Workflow efficiency in report builder
+- Session Timestamp: ~25min mark",,medium,
+RN-0280,2024-12-09 22:11:47,James Chen,,P-046,observation,"Interesting moment when the participant tried to complete the KPI cards workflow — they went to the wrong section first, then backtracked to overview page area, clicked around for a while looking for KPI cards. You could see the frustration building. This maps to what we heard from P-046 last week about the same flow being confusing. I think there's a real information architecture issue here that goes beyond just labeling.",,low,neutral
+RN-0281,,Laura Martinez,,P-083,observation,"alerts section nav needs rework, alert rules buried",,,
+RN-0282,"November 24, 2024",Aisha Patel,INT-003,P-017,pain_point,"- error msgs in data ingestion area unhelpful
+- 'something went wrong' - that's it
+- P-017 filed support ticket
+- hidden file limit on format conversion
+- critical fix needed",data-import,,neutral
+RN-0283,"November 16, 2024",Maria Santos,,P-029,pain_point,"## Pain Point
+- Issue: No way to undo after completing find webhook management in the interface in developer portal
+- Severity: High — data loss risk
+- Frequency: Occasional but high-impact when it occurs
+- User Impact: P-029 described losing 2 hours of work due to accidental overwrite in webhook management
+- Suggested Fix: Implement undo/version history for webhook management operations @james",Api,low,
+RN-0284,"October 9, 2024",James Chen,INT-050,P-060,feature_request,"Esto es un pain point importante — P-060 needs real-time collaboration on billing history in payment section. Currently their team takes turns and uses a spreadsheet to track who's working on what to avoid conflicts when they share billing history configurations with team. They explicitly compared it to Google Docs and said 'if this worked like that, it would save us hours of coordination.' Given how many teams we're seeing with this pattern, I think collaborative editing should be on the roadmap.",,low,negative
+RN-0285,2024-10-10 20:17:11,Aisha Patel,,P-009,,"- opened main dashboard
+- scanned for dashboard sharing
+- clicked 4 wrong things
+- finally found it
+- said 'that's not obvious'
+- suggest label change",,medium,neutral
+RN-0286,12/11/2024 01:13,Aisha Patel,,P-046,action_item,"- TODO: share find section findings with eng
+- P-046 blocked by technical limits
+- saved searches errors need fix
+- schedule sync this week
+- critical priority (esto es un pain point importante)",,,
+RN-0287,2024-12-06 20:02:37,James Chen,INT-012,PART-061,insight,"Connecting dots across PART-061's session and two from last week — the trust issue with webhook setup in integrations hub is bigger than I initially thought. Users aren't just confused about where to find it, they actively doubt the output accuracy. Two participants mentioned checking results against external tools before sharing with stakeholders. If we can't address the trust gap, feature improvements won't matter.",,,
+RN-0288,2024-11-09 16:05:32,Maria Santos,INT-031,P-007,quote,"## Participant Quote
+- Quote: ""I showed this to my team and they all said the same thing — where's the OAuth setup?""
+- Context: P-007 describing team reaction to API settings
+- Sentiment: Negative — widespread confusion, not individual
+- Related Theme: Feature discoverability
+- Session Timestamp: ~30min mark",,medium,mixed
+RN-0289,2024-12-30 12:02:57,Laura Martinez,,P-074,feature_request,wants bulk share mobile navigation configurations with team for mobile navigation,moble,,positive
+RN-0290,2024-10-16 21:30:31,James Chen,INT-019,P-038,action_item,There's an easy win here that I want to push for quickly — adding saved presets for drill-down charts in overview page. Four out of six participants in this round asked for this independently. The current experience of reconfiguring everything each time they investigate drill-down charts workarounds is creating daily friction that a relatively simple feature could eliminate. I'll work with @product on a spec and plan to validate the prototype with P-038 and others from this cohort.,,medium,
+RN-0291,"October 13, 2024",Laura Martinez,INT-010,,feature_request,saved presets for regex search config,search,,neutral
+RN-0292,2024-12-29 20:25:57,Laura Martinez,,P-098,quote,"""half my afternoon"" on API key generation weekly task — related: TASK-8337",,,positive
+RN-0293,2024-12-21 00:02:29,Laura Martinez,INT-002,P-118,action_item,competitive analysis needed for escalation rules — (FEAT-2521),,medium,negative
+RN-0294,2024-12-12 06:50:32,Aisha Patel,INT-048,,pain_point,"- mobile widget customization completely broken
+- can't load widget customization results at scale on phone
+- dashboard area not responsive
+- P-??? carries laptop everywhere
+- table stakes feature missing",,high,negative
+RN-0295,2024-11-03 22:32:16,David Kim,,,quote,"""My boss asks me for this every Friday and it takes me half the afternoon"" — P-??? on widget customization workflow to use widget customization as part of their routine. main dashboard not optimized for recurring use.",,,neutral
+RN-0296,2024-12-13 13:09:48,Laura Martinez,,P-077,insight,mental model mismatch on format conversion placement,data-import,,neutral
+RN-0297,2024-12-23 13:44:57,James Chen,INT-023,P-013,insight,"I think the real insight from today's session isn't about dashboard templates specifically but about the entire main dashboard workflow. When P-013 tried to integrate dashboard templates into their process, they revealed that their actual goal was three steps beyond what our feature supports. We're solving a sub-problem and users have to manually bridge the gap. This came through really clearly and I want to present it at the next product sync.",,high,mixed
+RN-0298,2024-12-28 18:02:12,David Kim,,P-105,feature_request,"""If this worked like Google Docs where my whole team could be in here at once, that would be incredible"" — on collaborative connect drill-down charts to external tools via drill-down charts in main dashboard.",,low,mixed
+RN-0299,2024-10-04 15:19:09,Maria Santos,,P-034,feature_request,"## Feature Request
+- Request: Bulk batch process items via data sync capability in connected apps
+- Requester: P-034
+- Use Case: Team processes 200+ items daily; data sync only supports one-at-a-time
+- Priority: High — workaround is manual and error-prone
+- Similar Requests: Heard from 3 other participants in previous sessions
+- Suggested Implementation: Add multi-select + batch batch process items via data sync to data sync",,,neutral
+RN-0300,2024-12-17 09:48:54,Maria Santos,,P-111,action_item,"## Action Item
+- Task: Add push notifications error states and recovery messages to mobile view
+- Owner: @product to write specs, @eng to implement
+- Evidence: P-111 hit dead-end errors with no recovery path when trying to validate push notifications improvements with users
+- Priority: Critical
+- Deadline: Hotfix candidate
+- Dependencies: Need error taxonomy from @eng",,medium,
+RN-0301,11/22/2024 04:47,James Chen,INT-018,PART-055,quote,"La interfaz no es intuitiva according to PART-055 who said 'I showed this to my team and they all said the same thing — where is the real-time updates?' This wasn't just one user's confusion, they're reporting that their entire team had the same reaction to main dashboard. When a whole team can't find a feature, it's definitely an IA problem, not a user problem. (necesitamos investigar más)",dashboard,low,
+RN-0302,2024-11-19 16:58:29,David Kim,,P-107,insight,"""Why can't this just happen automatically?"" — participant on manually needing to use drill-down charts for their daily workflow. Suggests drill-down charts in main dashboard should shift to an automated model.",DASHBOARD,,neutral
+RN-0303,"December 3, 2024",Maria Santos,,,,"## Action Item
+- Task: Run follow-up study specifically on SSO configuration performance in third-party section
+- Owner: @Maria Santos
+- Evidence: Multiple participants reported slow load times when trying to add missing SSO configuration capability
+- Priority: Medium
+- Deadline: End of month
+- Dependencies: Need access to performance monitoring data from @eng @laura",integrations,,
+RN-0304,12/21/2024 13:46,Aisha Patel,INT-020,,insight,"- pattern: users expect user deactivation in settings
+- actually lives in user settings
+- mental model mismatch
+- 4/6 participants confused
+- need IA rework",user-management,low,
+RN-0305,2024-12-17 00:52:28,Maria Santos,,P-028,observation,"## Observation
+- Context: During task 3, participant attempted to set up API key generation
+- Behavior: Immediately went to API console section, found API key generation on first try
+- Impact: This part of the flow is well-designed and intuitive
+- Recommendation: Use this pattern as a model for other areas",,,mixed
+RN-0306,2024-12-15 15:17:07,James Chen,INT-052,P-074,feature_request,The participant asked if we have an API for invoice download because they want to automate the share invoice download configurations with team process in billing page. They're an engineer by background and said their team has already built scripts for other tools and would 'absolutely build automation' if endpoints were available. This aligns with what I'm hearing from enterprise accounts — programmatic access is becoming table stakes.,,,
+RN-0307,2024-10-09 16:29:32,David Kim,INT-006,,feature_request,"""If this worked like Google Docs where my whole team could be in here at once, that would be incredible"" — on collaborative connect email alerts to external tools via email alerts in alert configuration. (necesitamos investigar más)",,low,mixed
+RN-0308,"November 23, 2024",David Kim,INT-932,P-019,pain_point,"""I just lost everything. Again."" — P-019 after accidentally navigating away from payment section mid-complete the plan upgrade process. No autosave for plan upgrade. They were visibly upset.",,,
+RN-0309,"December 12, 2024",Maria Santos,INT-040,,feature_request,"## Feature Request
+- Request: Keyboard shortcuts for endpoint documentation in API settings
+- Requester: P-???
+- Use Case: Power users perform this automate endpoint documentation workflows 20+ times per day
+- Priority: Medium — would significantly improve efficiency for heavy users
+- Similar Requests: @Maria Santos documented similar feedback
+- Suggested Implementation: Cmd/Ctrl + K style command palette with endpoint documentation actions",,medium,positive
+RN-0310,12/20/2024 07:25,James Chen,,P-014,observation,"Watched the participant try to configure data refresh settings and they nailed it on the first try, which was a pleasant surprise given how much trouble P-014 had with the same task last week. The difference might be that this participant came from a main dashboard background and already had the right mental model for where data refresh would be. So the design works, but only if you already think in this paradigm.",dashboard,,mixed
+RN-0311,2024-10-21 18:24:32,Laura Martinez,INT-018,P-066,feature_request,realtime collab on billing history needed @laura,,,mixed
+RN-0312,11/08/2024 03:50,Laura Martinez,,P-030,pain_point,"perms model broken, team can't access SSO provisioning",,medium,negative
+RN-0313,10/20/2024 08:24,Maria Santos,INT-001,P-113,insigt,"## Observation
+- Context: Returning participant (P-113) revisited account billing after 2-week gap
+- Behavior: Could not recall how to complete the plan upgrade workflow — had to re-learn the plan upgrade steps
+- Impact: Poor learnability / memorability for infrequent tasks
+- Recommendation: Provide a quick-reference or recently-used panel for plan upgrade",,,
+RN-0314,10/03/2024 05:55,Maria Santos,,P-020,insight,"## Insight
+- Pattern: Cross-functional teams use analytics area differently based on role
+- Evidence: Engineers onboard team members to pivot tables daily; PMs access pivot tables weekly; execs never
+- Root Cause: The interface doesn't adapt to usage patterns or role-based needs
+- Implication: Consider role-based default views for analytics area",,low,
+RN-0315,"December 22, 2024",Aisha Patel,INT-016,,,"- ""this actually works great"" - P-???
+- on Zapier integration in third-party section
+- rare positive feedback
+- study what makes this work
+- replicate pattern",,,positive
+RN-0316,11/23/2024 21:56,Maria Santos,,,pain_point,"## Pain Point
+- Issue: No way to undo after completing load push notifications results at scale in mobile app
+- Severity: High — data loss risk
+- Frequency: Occasional but high-impact when it occurs
+- User Impact: P-??? described losing 2 hours of work due to accidental overwrite in push notifications
+- Suggested Fix: Implement undo/version history for push notifications operations",,,
+RN-0317,11/28/2024 22:54,Aisha Patel,INT-026,P-007,quote,"- ""fix this one thing, I'll deal with the rest""
+- P-007 on biometric login
+- strongest single-priority signal
+- 18-month user
+- mobile app pain",,high,mixed
+RN-0318,2024-12-26 11:26:29,Aisha Patel,,P-089,insight,"- trust deficit
+- P-089 double-checks seat management externally
+- others too
+- subscription area data not transparent
+- show calculation needed",billing/payments,,positive
+RN-0319,2024-12-08 01:57:35,Laura Martinez,INT-041,P-042,observation,usr confused by advanced filters location,,,negative
+RN-0320,2024-10-03 21:01:50,Laura Martinez,INT-009,P-081,pain_point,"perms model broken, team can't access Zapier integration — cc JIRA-7135",,low,
+RN-0321,2024-12-03 14:28:26,Maria Santos,,P-039,observation,"## Observation
+- Context: Participant was attempting to set up endpoint documentation in the API console module
+- Behavior: Spent 3+ minutes looking for endpoint documentation before asking for help
+- Impact: Significant friction in core workflow
+- Recommendation: Consider redesigning the endpoint documentation entry point",api,medium,
+RN-0322,2024-10-09 01:34:36,Aisha Patel,,P-096,feature_request,"- wants bulk access data validation programmatically in data upload section
+- data validation is one-at-a-time currently
+- team does 200+/day
+- CSV workaround takes 1hr
+- high priority",,medium,mixed
+RN-0323,12/29/2024 23:07,James Chen,INT-029,P-102,feature_request,"Esto es un pain point importante — P-102 needs real-time collaboration on Zapier integration in integrations hub. Currently their team takes turns and uses a spreadsheet to track who's working on what to avoid conflicts when they customize Zapier integration to fit their needs. They explicitly compared it to Google Docs and said 'if this worked like that, it would save us hours of coordination.' Given how many teams we're seeing with this pattern, I think collaborative editing should be on the roadmap. (muy frustrante para el participante)",integration,low,neutral
+RN-0324,2024-12-18 19:23:11,James Chen,INT-049,P-015,pain_point,Every single participant this week has complained about API versioning in developer tools. It's the single most consistent pain point in the entire study. The issue is always the same: they need to complete the API versioning process but the feature requires too much context-switching between screens. One participant had 4 tabs of our product open simultaneously just to complete this one task. We need to consolidate this into a single view.,,,mixed
+RN-0325,2024-12-14 09:52:34,Aisha Patel,INT-035,P-060,action_item,"- TODO: escalate Jira sync data loss issue
+- P-060 lost work
+- no undo in third-party section
+- hotfix candidate
+- gather clips from all sessions",,high,neutral
+RN-0326,2024-11-09 08:04:18,David Kim,,,observation,"""Oh it's here? That makes no sense to me"" — participant located format conversion in data upload section but was clearly surprised by the placement. Completed the task but shook their head.",data-import,high,
+RN-0327,2024-11-18 05:19:40,Laura Martinez,INT-004,P-008,insight,role-based views needed for people section,user-management,,mixed
+RN-0328,2024-12-12 13:53:27,James Chen,INT-003,P-081,insight,"I think the real insight from today's session isn't about mute settings specifically but about the entire notification settings workflow. When P-081 tried to onboard team members to mute settings, they revealed that their actual goal was three steps beyond what our feature supports. We're solving a sub-problem and users have to manually bridge the gap. This came through really clearly and I want to present it at the next product sync.",,low,mixed
+RN-0329,2024-12-01 00:56:43,Aisha Patel,,P-091,feature_request,"- wants bulk connect PDF generation to external tools in report builder
+- PDF generation is one-at-a-time currently
+- team does 200+/day
+- CSV workaround takes 1hr
+- high priority",,high,
+RN-0330,10/11/2024 18:48,Maria Santos,INT-013,P-076,feature_request,"## Feature Request
+- Request: Real-time collaboration on regex search in find section
+- Requester: P-076
+- Use Case: Multiple team members need to automate regex search workflows simultaneously without conflicts
+- Priority: Medium-High — current workaround is screen-sharing
+- Similar Requests: Enterprise customers specifically requesting this
+- Suggested Implementation: Google Docs-style concurrent editing for regex search",,medium,positive
