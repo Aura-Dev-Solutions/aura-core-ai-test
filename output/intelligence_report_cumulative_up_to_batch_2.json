@@ -1,0 +1,659 @@
+[
+  {
+    "product_area": "user-management",
+    "mentions_total": 53,
+    "mentions_by_source": {
+      "notes": 46,
+      "interviews": 7
+    },
+    "researcher_sentiment_distribution": {
+      "mixed": 8,
+      "neutral": 27,
+      "positive": 8,
+      "negative": 3
+    },
+    "participant_sentiment_distribution": {
+      "positive": 2,
+      "mixed": 2,
+      "negative": 3
+    },
+    "key_themes": [
+      "team",
+      "access",
+      "participant",
+      "walk through",
+      "time",
+      "user",
+      "data",
+      "only"
+    ],
+    "pain_points": [
+      "El usuario mencionó que the payment section permissions model makes it impossible to delegate configure seat management for their use case to team members. P-013 said they're the only person on a 12-person team who can access seat management because the permission settings are so confusing that their admin gave up trying to configure it. This is a major bottleneck — one person doing a job that should be distributed. @team",
+      "\"I'm the only person who can do this because nobody else can get access\" — P-016 on integrations hub permissions blocking team from using data sync. Major bottleneck.",
+      "perms model broken, team can't access plan upgrade",
+      "Every single participant this week has complained about role assignment in user admin panel. It's the single most consistent pain point in the entire study. The issue is always the same: they need to complete the role assignment process but the feature requires too much context-switching between screens. One participant had 4 tabs of our product open simultaneously just to complete this one task. We need to consolidate this into a single view.",
+      "El usuario mencionó que the import wizard permissions model makes it impossible to delegate configure format conversion for their use case to team members. P-072 said they're the only person on a 12-person team who can access format conversion because the permission settings are so confusing that their admin gave up trying to configure it. This is a major bottleneck — one person doing a job that should be distributed.",
+      "perms model broken, team can't access faceted search (el flujo de trabajo es complicado)",
+      "perms model broken, team can't access SSO provisioning",
+      "panic - no good monitoring on connectors - someone notices stale data - scramble to diagnose - expired credential or rate limit or schema change - 4hrs to diagnose - error logs just 'sync failed' no details Q: Tell me about the last time you needed to onboard a new team..."
+    ],
+    "feature_requests": [
+      "- Request: Bulk share team grouping configurations with team capability in people section - Requester: P-019 - Use Case: Team processes 200+ items daily; team grouping only supports one-at-a-time - Priority: High — workaround is manual and error-prone - Similar Requests: Heard from 3 other participants in previous sessions - Suggested Implementation: Add multi-select + batch share team grouping configurations with team to team grouping",
+      "The participant asked if we have an API for real-time updates because they want to automate the customize real-time updates to fit their needs process in main dashboard. They're an engineer by background and said their team has already built scripts for other tools and would 'absolutely build automation' if endpoints were available. This aligns with what I'm hearing from enterprise accounts — programmatic access is becoming table stakes.",
+      "Really interesting feature request from today — the participant wants keyboard shortcuts for everything in user settings, especially team grouping. They showed me how they connect team grouping to external tools using only the keyboard in a competitor tool and it was dramatically faster. They said switching to the mouse for every team grouping interaction feels like 'going back to the Stone Age.' I think a command palette approach could solve this without building individual shortcuts. (el usuario mencionó que)",
+      "- Request: Real-time collaboration on escalation rules in notification settings - Requester: P-074 - Use Case: Multiple team members need to access escalation rules programmatically simultaneously without conflicts - Priority: Medium-High — current workaround is screen-sharing - Similar Requests: Enterprise customers specifically requesting this - Suggested Implementation: Google Docs-style concurrent editing for escalation rules — see JIRA-9466 (necesitamos investigar más)",
+      "wants bulk share mobile navigation configurations with team for mobile navigation",
+      "\"If this worked like Google Docs where my whole team could be in here at once, that would be incredible\" — on collaborative connect email alerts to external tools via email alerts in alert configuration. (necesitamos investigar más)",
+      "wants bulk connect PDF generation to external tools in report builder - PDF generation is one-at-a-time currently - team does 200+/day - CSV workaround takes 1hr - high priority",
+      "My team jokes that we need a training session specifically for the phone version because knowing the desktop doesn't transfer."
+    ],
+    "related_backlog_items": {
+      "shipped": [
+        {
+          "feature_id": "FEAT-084",
+          "title": "Custom role and permission builder",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "in_progress": [
+        {
+          "feature_id": "FEAT-089",
+          "title": "Team-based access control and workspaces",
+          "status": "in_progress",
+          "score": null,
+          "match_basis": "area"
+        },
+        {
+          "feature_id": "FEAT-092",
+          "title": "Guest and external collaborator accounts",
+          "status": "in_progress",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-085",
+        "title": "Billing API for programmatic invoice access",
+        "status": "planned",
+        "score": 0.017,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-087",
+        "title": "Pre-built dashboard templates for common use cases",
+        "status": "deprecated",
+        "score": 0.017,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.011,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.011,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-090",
+        "title": "SFTP scheduled imports",
+        "status": "shipped",
+        "score": 0.006,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "dashboard",
+    "mentions_total": 50,
+    "mentions_by_source": {
+      "notes": 46,
+      "interviews": 4
+    },
+    "researcher_sentiment_distribution": {
+      "positive": 5,
+      "neutral": 24,
+      "negative": 6,
+      "mixed": 11
+    },
+    "participant_sentiment_distribution": {
+      "positive": 3,
+      "negative": 1
+    },
+    "key_themes": [
+      "drill down",
+      "down charts",
+      "dashboard",
+      "main dashboard",
+      "time",
+      "participant",
+      "widget",
+      "dashboard sharing"
+    ],
+    "pain_points": [
+      "main dashboard perf terrible at scale",
+      "\"I just lost everything. Again.\" — P-073 after accidentally navigating away from main dashboard mid-configure widget customization for their use case. No autosave for widget customization. They were visibly upset.",
+      "perms model broken, team can't access real-time updates",
+      "- Issue: dashboard area doesn't remember user preferences for data refresh - Severity: Medium — annoying repetitive friction - Frequency: Every login / session start - User Impact: Users reconfigure data refresh settings each time before they can find data refresh in the interface - Suggested Fix: Persist data refresh preferences per user across sessions",
+      "- Issue: home screen doesn't remember user preferences for drill-down charts - Severity: Medium — annoying repetitive friction - Frequency: Every login / session start - User Impact: Users reconfigure drill-down charts settings each time before they can find drill-down charts in the interface - Suggested Fix: Persist drill-down charts preferences per user across sessions",
+      "- Issue: No way to undo after completing recover from a KPI cards error in home screen - Severity: High — data loss risk - Frequency: Occasional but high-impact when it occurs - User Impact: P-019 described losing 2 hours of work due to accidental overwrite in KPI cards - Suggested Fix: Implement undo/version history for KPI cards operations",
+      "business card scan at conference - tried 15 cards worked on 6 - rest not recognized or OCR parsed wrong - titles in phone field emails split - working scans no link to image can't verify - ended up photos + manual entry - same as before feature existed Q: Walk me through how the phone experience compares to what yo...",
+      "last Tuesday 25K customer records from old CRM - progress bar froze 68% for 45min - no way to tell processing or failed - afraid to close browser - eventually completed - 300 records silently dropped - no error log which ones or why"
+    ],
+    "feature_requests": [
+      "\"If this worked like Google Docs where my whole team could be in here at once, that would be incredible\" — on collaborative customize mobile dashboard to fit their needs via mobile dashboard in mobile section.",
+      "\"If this worked like Google Docs where my whole team could be in here at once, that would be incredible\" — on collaborative connect drill-down charts to external tools via drill-down charts in main dashboard.",
+      "About half the like time the yeah activity is just um someone else viewing uh the same record, basically which is not something I need to be notified about."
+    ],
+    "related_backlog_items": {
+      "deprecated": [
+        {
+          "feature_id": "FEAT-087",
+          "title": "Pre-built dashboard templates for common use cases",
+          "status": "deprecated",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.022,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.022,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-094",
+        "title": "Search analytics and query performance dashboard",
+        "status": "planned",
+        "score": 0.021,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-087",
+        "title": "Pre-built dashboard templates for common use cases",
+        "status": "deprecated",
+        "score": 0.021,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "search",
+    "mentions_total": 45,
+    "mentions_by_source": {
+      "notes": 39,
+      "interviews": 6
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 21,
+      "positive": 7,
+      "mixed": 4,
+      "negative": 7
+    },
+    "participant_sentiment_distribution": {
+      "mixed": 1,
+      "positive": 1,
+      "negative": 4
+    },
+    "key_themes": [
+      "search",
+      "data",
+      "walk through",
+      "participant",
+      "team",
+      "find",
+      "actually",
+      "maria santos"
+    ],
+    "pain_points": [
+      "error msgs in find section unhelpful - 'something went wrong' - that's it - P-006 filed support ticket - hidden file limit on faceted search - critical fix needed",
+      "error msgs useless in search bar",
+      "saved searches loads 47sec - global search unusable at scale - usr goes to get coffee while waiting - perf regression? - blocks daily complete the saved searches process",
+      "- Issue: No way to undo after completing find webhook management in the interface in developer portal - Severity: High — data loss risk - Frequency: Occasional but high-impact when it occurs - User Impact: P-029 described losing 2 hours of work due to accidental overwrite in webhook management - Suggested Fix: Implement undo/version history for webhook management operations @james",
+      "mobile widget customization completely broken - can't load widget customization results at scale on phone - dashboard area not responsive - P-??? carries laptop everywhere - table stakes feature missing",
+      "- Issue: No way to undo after completing load push notifications results at scale in mobile app - Severity: High — data loss risk - Frequency: Occasional but high-impact when it occurs - User Impact: P-??? described losing 2 hours of work due to accidental overwrite in push notifications - Suggested Fix: Implement undo/version history for push notifications operations",
+      "searched 'healthcare' for industry accounts - 500 results word appeared anywhere in any field - meeting notes emails bios everything - not ranked by relevance sorted by creation date - actual accounts on page 3 created years ago - can't search specific field from main bar Q: Walk me through how you save and reuse frequently needed loo...",
+      "Participant: There's no sandbox environment, um which is a real problem We test against our production instance kind of with a test sort of account."
+    ],
+    "feature_requests": [
+      "This came up organically — P-??? was trying to access saved searches programmatically and said 'I wish I could just save this setup and reuse it.' They configure saved searches in global search the same way every Monday morning and it takes them 10 minutes each time. Saved presets or templates seem like low-hanging fruit here. They even sketched out what they'd want on a sticky note — basically a dropdown at the top with named configurations.",
+      "wants bulk connect search suggestions to external tools for search suggestions",
+      "\"If this worked like Google Docs where my whole team could be in here at once, that would be incredible\" — on collaborative customize search history to fit their needs via search history in global search.",
+      "saved presets for regex search config",
+      "- Request: Real-time collaboration on regex search in find section - Requester: P-076 - Use Case: Multiple team members need to automate regex search workflows simultaneously without conflicts - Priority: Medium-High — current workaround is screen-sharing - Similar Requests: Enterprise customers specifically requesting this - Suggested Implementation: Google Docs-style concurrent editing for regex search",
+      "Interviewer: Tell me about trying to do a basically lookup that spans multiple entity types simultaneously Participant: Sometimes I just need to find anything I mean related to a particular keyword across accounts, contacts, tickets, like and notes.",
+      "We've had situations where yeah two reps sort of were working the same account um because neither actually could um easily see it was already sort of claimed We actually actually added a shared Notion sort of page where honestly reps log which honestly accounts they're working on, uh which is a ridiculous workaround for a basically platform that should have basic ownership actually visibility in basically its lookup.",
+      "Interviewer: Walk me through how you typically look things so up you know when you need to find like something quickly."
+    ],
+    "related_backlog_items": {
+      "shipped": [
+        {
+          "feature_id": "FEAT-093",
+          "title": "Typeahead suggestions with recent history",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "planned": [
+        {
+          "feature_id": "FEAT-094",
+          "title": "Search analytics and query performance dashboard",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-082",
+        "title": "Saved field mapping templates",
+        "status": "planned",
+        "score": 0.013,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-093",
+        "title": "Typeahead suggestions with recent history",
+        "status": "shipped",
+        "score": 0.013,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.013,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.013,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-087",
+        "title": "Pre-built dashboard templates for common use cases",
+        "status": "deprecated",
+        "score": 0.012,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "data-import",
+    "mentions_total": 41,
+    "mentions_by_source": {
+      "notes": 36,
+      "interviews": 5
+    },
+    "researcher_sentiment_distribution": {
+      "mixed": 6,
+      "neutral": 22,
+      "negative": 3,
+      "positive": 5
+    },
+    "participant_sentiment_distribution": {
+      "negative": 3,
+      "mixed": 1,
+      "positive": 1
+    },
+    "key_themes": [
+      "field mapping",
+      "upload",
+      "field",
+      "mapping",
+      "data",
+      "know",
+      "right",
+      "kind"
+    ],
+    "pain_points": [
+      "\"Every time I open this I have to set it all up again from scratch\" — re: CSV upload not persisting preferences in import wizard. Participant reconfigures daily before they can export data using CSV upload.",
+      "import wizard perf terrible at scale (necesitamos investigar más)",
+      "- Issue: batch import performance degrades significantly with large datasets in import wizard - Severity: Medium-High — blocks power users - Frequency: Daily for teams with 10k+ records - User Impact: Users resort to manual export and external processing to load batch import results at scale - Suggested Fix: Optimize batch import query performance and add progress indicators",
+      "error msgs in data ingestion area unhelpful - 'something went wrong' - that's it - P-017 filed support ticket - hidden file limit on format conversion - critical fix needed",
+      "webhook setup easy - retry logic aggressive - non-200 within 5sec retries immediately - 50 retries no backoff - handler slow 10min got 3000 duplicate events - 40 slipped through created duplicate records - building own idempotency layer Q: Tell me about the last time you missed an important alert th...",
+      "production DB 95% capacity - alert configured but never received - sent to decommissioned email DL from 6 months ago - system showed 'delivered' because server accepted - dead mailbox nobody monitoring - caught by developer noticing slow queries",
+      "Participant: The error messages are almost useless I'll get basically something sort of like 'Row 847: validation error' actually with no detail about which field or what the I mean error you know is.",
+      "I eventually basically figured out that row uh 847 had um a yeah zip code basically with a leading zero that got stripped uh by actually Excel But yeah discovering that right took kind of me forty-five minutes per error type."
+    ],
+    "feature_requests": [
+      "P-??? asked for something that I think could be a game-changer — bulk share field mapping configurations with team in import wizard. Right now field mapping only works one at a time and their team processes 200+ items daily. They described this elaborate workaround involving CSV exports and reimports that takes over an hour. A native batch operation would probably save their team 5+ hours per week. I've heard variations of this from at least three other participants now.",
+      "realtime collab on batch import needed",
+      "realtime collab on field mapping - team takes turns in import settings - spreadsheet to track who's editing - wants Google Docs-style - see JIRA-{num}",
+      "realtime collab on batch import - team takes turns in import wizard - spreadsheet to track who's editing - wants Google Docs-style - see JIRA-{num}",
+      "wants bulk access data validation programmatically in data upload section - data validation is one-at-a-time currently - team does 200+/day - CSV workaround takes 1hr - high priority",
+      "We actually added a shared Notion page where reps log which accounts they're working on, which is a ridiculous workaround for a platform that should have basic ownership visibility in its lookup."
+    ],
+    "related_backlog_items": {
+      "planned": [
+        {
+          "feature_id": "FEAT-082",
+          "title": "Saved field mapping templates",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "in_progress": [
+        {
+          "feature_id": "FEAT-088",
+          "title": "Incremental and delta import mode",
+          "status": "in_progress",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "shipped": [
+        {
+          "feature_id": "FEAT-090",
+          "title": "SFTP scheduled imports",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-082",
+        "title": "Saved field mapping templates",
+        "status": "planned",
+        "score": 0.032,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-088",
+        "title": "Incremental and delta import mode",
+        "status": "in_progress",
+        "score": 0.032,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-090",
+        "title": "SFTP scheduled imports",
+        "status": "shipped",
+        "score": 0.022,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.021,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.01,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "billing",
+    "mentions_total": 39,
+    "mentions_by_source": {
+      "notes": 33,
+      "interviews": 6
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 17,
+      "negative": 7,
+      "mixed": 4,
+      "positive": 5
+    },
+    "participant_sentiment_distribution": {
+      "positive": 4,
+      "mixed": 2
+    },
+    "key_themes": [
+      "team",
+      "participant",
+      "billing",
+      "plan",
+      "payment",
+      "like",
+      "finance team",
+      "invoice"
+    ],
+    "pain_points": [
+      "\"I can't believe I have to do this every single day\" — on the 12-click process to configure payment method for their use case via payment method in payment section. This is our #1 daily-use pain point.",
+      "- Issue: billing page doesn't remember user preferences for billing history - Severity: Medium — annoying repetitive friction - Frequency: Every login / session start - User Impact: Users reconfigure billing history settings each time before they can recover from a billing history error - Suggested Fix: Persist billing history preferences per user across sessions",
+      "- Issue: Error messages when attempting to find usage dashboard in the interface are unhelpful — just says 'Something went wrong' - Severity: Critical — users cannot self-recover - Frequency: Occurs when usage dashboard input exceeds undocumented limits in subscription area - User Impact: Users contact support or abandon the task entirely - Suggested Fix: Add specific error messages with recovery steps for usage dashboard",
+      "billing history takes way too many clicks",
+      "- Issue: No way to undo after completing load plan upgrade results at scale in account billing - Severity: High — data loss risk - Frequency: Occasional but high-impact when it occurs - User Impact: P-076 described losing 2 hours of work due to accidental overwrite in plan upgrade - Suggested Fix: Implement undo/version history for plan upgrade operations",
+      "\"I just lost everything. Again.\" — P-019 after accidentally navigating away from payment section mid-complete the plan upgrade process. No autosave for plan upgrade. They were visibly upset.",
+      "Participant: Honestly I've spent hours on the pricing page and I still can't tell if we should be on the Growth plan or the Scale plan.",
+      "When I asked support, they said it stands for Enterprise Pro Monthly seat count for Q4 of 2023, but there's six other line items I still can't decode."
+    ],
+    "feature_requests": [
+      "- Request: Keyboard shortcuts for proration settings in billing page - Requester: P-112 - Use Case: Power users perform this batch process items via proration settings 20+ times per day - Priority: Medium — would significantly improve efficiency for heavy users - Similar Requests: @Maria Santos documented similar feedback - Suggested Implementation: Cmd/Ctrl + K style command palette with proration settings actions",
+      "saved presets for payment method config",
+      "\"If I could do this in bulk I'd save an hour every day\" — P-012 on seat management supporting only individual connect seat management to external tools in subscription area. Strong request, heard from 3+ participants.",
+      "\"I set this up the exact same way every single Monday. Let me save it.\" — re: payment method presets in subscription area. Participant sketched out desired UI on a sticky note.",
+      "- Request: Saved views / presets for usage dashboard in account billing - Requester: P-116 - Use Case: Different team members need different usage dashboard configurations to connect usage dashboard to external tools - Priority: Medium — reduces daily setup time - Similar Requests: Came up in 4/6 sessions this round - Suggested Implementation: Named presets with share-to-team capability",
+      "Really interesting feature request from today — the participant wants keyboard shortcuts for everything in account billing, especially plan upgrade. They showed me how they customize plan upgrade to fit their needs using only the keyboard in a competitor tool and it was dramatically faster. They said switching to the mouse for every plan upgrade interaction feels like 'going back to the Stone Age.' I think a command palette approach could solve this without building individual shortcuts.",
+      "Esto es un pain point importante — P-060 needs real-time collaboration on billing history in payment section. Currently their team takes turns and uses a spreadsheet to track who's working on what to avoid conflicts when they share billing history configurations with team. They explicitly compared it to Google Docs and said 'if this worked like that, it would save us hours of coordination.' Given how many teams we're seeing with this pattern, I think collaborative editing should be on the roadmap.",
+      "The participant asked if we have an API for invoice download because they want to automate the share invoice download configurations with team process in billing page. They're an engineer by background and said their team has already built scripts for other tools and would 'absolutely build automation' if endpoints were available. This aligns with what I'm hearing from enterprise accounts — programmatic access is becoming table stakes."
+    ],
+    "related_backlog_items": {
+      "planned": [
+        {
+          "feature_id": "FEAT-085",
+          "title": "Billing API for programmatic invoice access",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "shipped": [
+        {
+          "feature_id": "FEAT-095",
+          "title": "Payment method management portal",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-085",
+        "title": "Billing API for programmatic invoice access",
+        "status": "planned",
+        "score": 0.026,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-095",
+        "title": "Payment method management portal",
+        "status": "shipped",
+        "score": 0.021,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.015,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.015,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-087",
+        "title": "Pre-built dashboard templates for common use cases",
+        "status": "deprecated",
+        "score": 0.015,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "integrations",
+    "mentions_total": 34,
+    "mentions_by_source": {
+      "notes": 31,
+      "interviews": 3
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 19,
+      "positive": 5,
+      "mixed": 4,
+      "negative": 3
+    },
+    "participant_sentiment_distribution": {
+      "negative": 3
+    },
+    "key_themes": [
+      "data",
+      "data sync",
+      "sync",
+      "team",
+      "integrations hub",
+      "david kim",
+      "integration",
+      "webhook setup"
+    ],
+    "pain_points": [
+      "Every single participant this week has complained about webhook setup in connected apps. It's the single most consistent pain point in the entire study. The issue is always the same: they need to recover from a webhook setup error but the feature requires too much context-switching between screens. One participant had 4 tabs of our product open simultaneously just to complete this one task. We need to consolidate this into a single view.",
+      "mobile integrations hub completely unusable",
+      "error msgs useless in connected apps",
+      "perms model broken, team can't access Zapier integration — cc JIRA-7135",
+      "I needed year-over-year growth numbers broken down by region.",
+      "When a customer-facing bug is filed in Zendesk, someone on our CS team has to manually create a corresponding ticket in Jira, copy over all the context, attach the screenshots, and tag the right engineering team.",
+      "So when engineering fixes the bug, CS has no idea unless someone remembers to go back and update the Zendesk ticket.",
+      "It turned out there was a case-sensitivity issue in one of the attribute names that nobody mentioned anywhere."
+    ],
+    "feature_requests": [
+      "- Request: Integration between user settings SSO provisioning and external tools - Requester: P-013 - Use Case: Team uses Slack/Jira/Notion alongside our tool; need SSO provisioning data to flow between them when they access SSO provisioning programmatically - Priority: High — ecosystem integration is a decision factor for renewals - Similar Requests: Top request in last NPS survey - Suggested Implementation: Webhook-based or native integration for SSO provisioning events",
+      "- Request: API access for webhook setup to programmatically customize webhook setup to fit their needs - Requester: P-021 (engineering background) - Use Case: Automate repetitive connected apps workflows via scripts - Priority: High — multiple enterprise customers requesting - Similar Requests: See JIRA-{num} and related tickets - Suggested Implementation: REST endpoint for webhook setup CRUD operations",
+      "\"I set this up the exact same way every single Monday. Let me save it.\" — re: data sync presets in integration settings. Participant sketched out desired UI on a sticky note.",
+      "keyboard shortcuts for integrations hub",
+      "keyboard shortcuts for Zapier integration - power user does share Zapier integration configurations with team 20x/day - mouse too slow - command palette approach? - competitor has this",
+      "\"The reason we haven't gone all-in on your tool is it doesn't talk to anything else\" — P-053 on notification center integration gaps. Wants in-app notifications connected to Slack/Jira.",
+      "overview page needs Slack integration",
+      "The participant asked if we have an API for Jira sync because they want to automate the access Jira sync programmatically process in integrations hub. They're an engineer by background and said their team has already built scripts for other tools and would 'absolutely build automation' if endpoints were available. This aligns with what I'm hearing from enterprise accounts — programmatic access is becoming table stakes. — related: TASK-4454"
+    ],
+    "related_backlog_items": {
+      "shipped": [
+        {
+          "feature_id": "FEAT-081",
+          "title": "SSO and SAML 2.0 federation",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        },
+        {
+          "feature_id": "FEAT-086",
+          "title": "Salesforce bi-directional sync",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        },
+        {
+          "feature_id": "FEAT-091",
+          "title": "Slack workspace notifications",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "planned": [
+        {
+          "feature_id": "FEAT-083",
+          "title": "Microsoft Teams integration",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-091",
+        "title": "Slack workspace notifications",
+        "status": "shipped",
+        "score": 0.02,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-085",
+        "title": "Billing API for programmatic invoice access",
+        "status": "planned",
+        "score": 0.02,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.02,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-083",
+        "title": "Microsoft Teams integration",
+        "status": "planned",
+        "score": 0.013,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.013,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  }
+]

@@ -1,0 +1,595 @@
+[
+  {
+    "product_area": "user-management",
+    "mentions_total": 17,
+    "mentions_by_source": {
+      "notes": 12,
+      "interviews": 5
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 6,
+      "mixed": 4,
+      "positive": 1,
+      "negative": 1
+    },
+    "participant_sentiment_distribution": {
+      "mixed": 2,
+      "negative": 3
+    },
+    "key_themes": [
+      "team",
+      "participant",
+      "walk through",
+      "data",
+      "time",
+      "only",
+      "through",
+      "two"
+    ],
+    "pain_points": [
+      "perms model broken, team can't access SSO provisioning",
+      "I opened it and got a full-screen error saying 'No internet connection' with no option to view cached data.",
+      "If I turned it off, I'd also lose critical error alerts.",
+      "user creation endpoint - docs say role field accepts string - actually only numeric role ID - string doesn't error just sets role to null - no permissions - 2hrs debugging broken provisioning - support said docs outdated Q: Can you describe the most frustrating experience you've had ...",
+      "cryptic line item codes ENT-PRO-M-23-Q4 - no legend or breakdown - support decoded one but 6 others unknown - asked for plain English invoice months - finance flagged audit risk - can't reconcile Q: Can you describe a time when you received a charge you thoug...",
+      "error messages useless - 'Row 847 validation error' no field or detail - 200 rows with errors - manually check each row against undocumented validation rules - row 847 zip code leading zero stripped by Excel - 45min per error type to discover Q: Walk me through how your organization manages single sign-on...",
+      "When a customer-facing bug is filed in Zendesk, someone on our CS team has to manually create a corresponding ticket in Jira, copy over all the context, attach the screenshots, and tag the right engineering team.",
+      "So when engineering fixes the bug, CS has no idea unless someone remembers to go back and update the Zendesk ticket."
+    ],
+    "feature_requests": [
+      "wants bulk share mobile navigation configurations with team for mobile navigation",
+      "\"If this worked like Google Docs where my whole team could be in here at once, that would be incredible\" — on collaborative connect email alerts to external tools via email alerts in alert configuration. (necesitamos investigar más)",
+      "wants bulk connect PDF generation to external tools in report builder - PDF generation is one-at-a-time currently - team does 200+/day - CSV workaround takes 1hr - high priority",
+      "My team jokes that we need a training session specifically for the phone version because knowing the desktop doesn't transfer.",
+      "We really need a one-click offboarding workflow.",
+      "Interviewer: Tell me about the last time you missed an important alert that you should have received."
+    ],
+    "related_backlog_items": {
+      "shipped": [
+        {
+          "feature_id": "FEAT-084",
+          "title": "Custom role and permission builder",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "in_progress": [
+        {
+          "feature_id": "FEAT-089",
+          "title": "Team-based access control and workspaces",
+          "status": "in_progress",
+          "score": null,
+          "match_basis": "area"
+        },
+        {
+          "feature_id": "FEAT-092",
+          "title": "Guest and external collaborator accounts",
+          "status": "in_progress",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-090",
+        "title": "SFTP scheduled imports",
+        "status": "shipped",
+        "score": 0.015,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-082",
+        "title": "Saved field mapping templates",
+        "status": "planned",
+        "score": 0.015,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-084",
+        "title": "Custom role and permission builder",
+        "status": "shipped",
+        "score": 0.015,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-088",
+        "title": "Incremental and delta import mode",
+        "status": "in_progress",
+        "score": 0.015,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.014,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "dashboard",
+    "mentions_total": 15,
+    "mentions_by_source": {
+      "notes": 15,
+      "interviews": 0
+    },
+    "researcher_sentiment_distribution": {
+      "mixed": 5,
+      "neutral": 10
+    },
+    "participant_sentiment_distribution": {},
+    "key_themes": [
+      "drill down",
+      "down charts",
+      "main dashboard",
+      "dashboard",
+      "drill",
+      "down",
+      "charts",
+      "main"
+    ],
+    "pain_points": [],
+    "feature_requests": [
+      "\"If this worked like Google Docs where my whole team could be in here at once, that would be incredible\" — on collaborative connect drill-down charts to external tools via drill-down charts in main dashboard."
+    ],
+    "related_backlog_items": {
+      "deprecated": [
+        {
+          "feature_id": "FEAT-087",
+          "title": "Pre-built dashboard templates for common use cases",
+          "status": "deprecated",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.038,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.037,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-094",
+        "title": "Search analytics and query performance dashboard",
+        "status": "planned",
+        "score": 0.036,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-087",
+        "title": "Pre-built dashboard templates for common use cases",
+        "status": "deprecated",
+        "score": 0.034,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "billing",
+    "mentions_total": 13,
+    "mentions_by_source": {
+      "notes": 10,
+      "interviews": 3
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 6,
+      "positive": 2,
+      "negative": 1,
+      "mixed": 1
+    },
+    "participant_sentiment_distribution": {
+      "mixed": 2,
+      "positive": 1
+    },
+    "key_themes": [
+      "team",
+      "laura martinez",
+      "walk through",
+      "payment",
+      "payment section",
+      "plan upgrade",
+      "billing",
+      "participant"
+    ],
+    "pain_points": [
+      "\"I just lost everything. Again.\" — P-019 after accidentally navigating away from payment section mid-complete the plan upgrade process. No autosave for plan upgrade. They were visibly upset.",
+      "When I asked support, they said it stands for Enterprise Pro Monthly seat count for Q4 of 2023, but there's six other line items I still can't decode.",
+      "My finance team has flagged it as an audit risk because we can't reconcile what we're paying for.",
+      "If any one of those steps fails, everything downstream is broken.",
+      "monthly headache - cross-reference invoice with headcount spreadsheet - dates never aligned always discrepancy - no individual user list just total seats - over by 2 seats can't identify which - 3 weeks to close books last quarter - 20+ SaaS subs Q: Tell me about a time when you were offline and needed to acc...",
+      "flight to Chicago - review account details before meeting - no offline mode at all - full-screen error 'No internet connection' - no cached data option - had previously viewed accounts data was on phone - doesn't store locally - relied on screenshots taken before flight - lucky had planned ahead Q: Tell me about the last time you had a question about a charg...",
+      "monthly headache - cross-reference invoice with headcount spreadsheet - dates never aligned always discrepancy - no individual user list just total seats - over by 2 seats can't identify which - 3 weeks to close books last quarter - 20+ SaaS subs Q: Can you describe a specific situation where you were confuse...",
+      "cryptic line item codes ENT-PRO-M-23-Q4 - no legend or breakdown - support decoded one but 6 others unknown - asked for plain English invoice months - finance flagged audit risk - can't reconcile Q: Walk me through the last time you tried to understand the di..."
+    ],
+    "feature_requests": [
+      "Esto es un pain point importante — P-060 needs real-time collaboration on billing history in payment section. Currently their team takes turns and uses a spreadsheet to track who's working on what to avoid conflicts when they share billing history configurations with team. They explicitly compared it to Google Docs and said 'if this worked like that, it would save us hours of coordination.' Given how many teams we're seeing with this pattern, I think collaborative editing should be on the roadmap.",
+      "The participant asked if we have an API for invoice download because they want to automate the share invoice download configurations with team process in billing page. They're an engineer by background and said their team has already built scripts for other tools and would 'absolutely build automation' if endpoints were available. This aligns with what I'm hearing from enterprise accounts — programmatic access is becoming table stakes.",
+      "realtime collab on billing history needed @laura",
+      "phone for quick checks approvals - look at metric approve request reply to comment - same nested menu structure as desktop - 4 levels to get to approvals - no quick actions or shortcuts for common mobile tasks - suggested 'mobile home' view top 5 actions - nothing so far"
+    ],
+    "related_backlog_items": {
+      "planned": [
+        {
+          "feature_id": "FEAT-085",
+          "title": "Billing API for programmatic invoice access",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "shipped": [
+        {
+          "feature_id": "FEAT-095",
+          "title": "Payment method management portal",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-085",
+        "title": "Billing API for programmatic invoice access",
+        "status": "planned",
+        "score": 0.045,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.026,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-095",
+        "title": "Payment method management portal",
+        "status": "shipped",
+        "score": 0.018,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-083",
+        "title": "Microsoft Teams integration",
+        "status": "planned",
+        "score": 0.018,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.018,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "data-import",
+    "mentions_total": 13,
+    "mentions_by_source": {
+      "notes": 10,
+      "interviews": 3
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 8,
+      "positive": 1,
+      "mixed": 1
+    },
+    "participant_sentiment_distribution": {
+      "positive": 1,
+      "negative": 2
+    },
+    "key_themes": [
+      "upload",
+      "sort",
+      "right",
+      "records",
+      "kind",
+      "know",
+      "row 847",
+      "participant"
+    ],
+    "pain_points": [
+      "- Issue: batch import performance degrades significantly with large datasets in import wizard - Severity: Medium-High — blocks power users - Frequency: Daily for teams with 10k+ records - User Impact: Users resort to manual export and external processing to load batch import results at scale - Suggested Fix: Optimize batch import query performance and add progress indicators",
+      "error msgs in data ingestion area unhelpful - 'something went wrong' - that's it - P-017 filed support ticket - hidden file limit on format conversion - critical fix needed",
+      "Participant: The error messages are almost useless.",
+      "I'll get something like kind of 'Row 847: validation right error' um with no detail about sort of which field or basically what the error is.",
+      "Last time I had 200 rows with yeah errors and the only way to find right the problems was to open the original like CSV, go to row 847 and actually manually basically check each field actually against the system's validation honestly rules Which aren't documented like anywhere by the way I eventually figured out that row 847 had like a zip code sort of with a leading zero that got sort of stripped right by Excel But discovering that took uh me kind of forty-five minutes per error type Interviewer: Tell me about handling files that have merged cells or inconsistent row I mean formatting Participant: Our actually finance team sends me these Excel files where actually they've merged cells across rows for grouping purposes The like upload parser honestly treats merged cells as one record with blank fields for the rows below.",
+      "[00:11:44] Participant: The error messages are almost useless.",
+      "I'll get something like 'Row 847: validation error' with no detail about which field or what the error is.",
+      "But discovering that took me forty-five minutes per error type."
+    ],
+    "feature_requests": [
+      "realtime collab on batch import - team takes turns in import wizard - spreadsheet to track who's editing - wants Google Docs-style - see JIRA-{num}",
+      "wants bulk access data validation programmatically in data upload section - data validation is one-at-a-time currently - team does 200+/day - CSV workaround takes 1hr - high priority",
+      "We actually added a shared Notion page where reps log which accounts they're working on, which is a ridiculous workaround for a platform that should have basic ownership visibility in its lookup."
+    ],
+    "related_backlog_items": {
+      "planned": [
+        {
+          "feature_id": "FEAT-082",
+          "title": "Saved field mapping templates",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "in_progress": [
+        {
+          "feature_id": "FEAT-088",
+          "title": "Incremental and delta import mode",
+          "status": "in_progress",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "shipped": [
+        {
+          "feature_id": "FEAT-090",
+          "title": "SFTP scheduled imports",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-088",
+        "title": "Incremental and delta import mode",
+        "status": "in_progress",
+        "score": 0.053,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-090",
+        "title": "SFTP scheduled imports",
+        "status": "shipped",
+        "score": 0.036,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.033,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-082",
+        "title": "Saved field mapping templates",
+        "status": "planned",
+        "score": 0.017,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-092",
+        "title": "Guest and external collaborator accounts",
+        "status": "in_progress",
+        "score": 0.017,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "search",
+    "mentions_total": 11,
+    "mentions_by_source": {
+      "notes": 11,
+      "interviews": 0
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 7,
+      "negative": 3,
+      "positive": 1
+    },
+    "participant_sentiment_distribution": {},
+    "key_themes": [
+      "regex search",
+      "data loss",
+      "webhook management",
+      "push notifications",
+      "search",
+      "high",
+      "advanced filters",
+      "issue way"
+    ],
+    "pain_points": [
+      "- Issue: No way to undo after completing find webhook management in the interface in developer portal - Severity: High — data loss risk - Frequency: Occasional but high-impact when it occurs - User Impact: P-029 described losing 2 hours of work due to accidental overwrite in webhook management - Suggested Fix: Implement undo/version history for webhook management operations @james",
+      "mobile widget customization completely broken - can't load widget customization results at scale on phone - dashboard area not responsive - P-??? carries laptop everywhere - table stakes feature missing",
+      "- Issue: No way to undo after completing load push notifications results at scale in mobile app - Severity: High — data loss risk - Frequency: Occasional but high-impact when it occurs - User Impact: P-??? described losing 2 hours of work due to accidental overwrite in push notifications - Suggested Fix: Implement undo/version history for push notifications operations"
+    ],
+    "feature_requests": [
+      "saved presets for regex search config",
+      "- Request: Real-time collaboration on regex search in find section - Requester: P-076 - Use Case: Multiple team members need to automate regex search workflows simultaneously without conflicts - Priority: Medium-High — current workaround is screen-sharing - Similar Requests: Enterprise customers specifically requesting this - Suggested Implementation: Google Docs-style concurrent editing for regex search"
+    ],
+    "related_backlog_items": {
+      "shipped": [
+        {
+          "feature_id": "FEAT-093",
+          "title": "Typeahead suggestions with recent history",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "planned": [
+        {
+          "feature_id": "FEAT-094",
+          "title": "Search analytics and query performance dashboard",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-082",
+        "title": "Saved field mapping templates",
+        "status": "planned",
+        "score": 0.02,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.019,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-094",
+        "title": "Search analytics and query performance dashboard",
+        "status": "planned",
+        "score": 0.019,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-087",
+        "title": "Pre-built dashboard templates for common use cases",
+        "status": "deprecated",
+        "score": 0.019,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  },
+  {
+    "product_area": "integrations",
+    "mentions_total": 9,
+    "mentions_by_source": {
+      "notes": 8,
+      "interviews": 1
+    },
+    "researcher_sentiment_distribution": {
+      "neutral": 7,
+      "positive": 1
+    },
+    "participant_sentiment_distribution": {
+      "negative": 1
+    },
+    "key_themes": [
+      "zapier integration",
+      "data sync",
+      "data",
+      "integrations hub",
+      "third party",
+      "party section",
+      "zapier",
+      "integration"
+    ],
+    "pain_points": [
+      "perms model broken, team can't access Zapier integration — cc JIRA-7135",
+      "panic - no good monitoring on connectors - someone notices stale data - scramble to diagnose - expired credential or rate limit or schema change - 4hrs to diagnose - error logs just 'sync failed' no details Q: Tell me about a time when you had to set up an authorization...",
+      "SSO provider SAML 2.0 setup - attribute mapping undocumented - 3 days with support - group claims not passing - case sensitivity issue in attribute names Q: Walk me through the last time you added or removed a compone..."
+    ],
+    "feature_requests": [
+      "- Request: Bulk batch process items via data sync capability in connected apps - Requester: P-034 - Use Case: Team processes 200+ items daily; data sync only supports one-at-a-time - Priority: High — workaround is manual and error-prone - Similar Requests: Heard from 3 other participants in previous sessions - Suggested Implementation: Add multi-select + batch batch process items via data sync to data sync",
+      "Esto es un pain point importante — P-102 needs real-time collaboration on Zapier integration in integrations hub. Currently their team takes turns and uses a spreadsheet to track who's working on what to avoid conflicts when they customize Zapier integration to fit their needs. They explicitly compared it to Google Docs and said 'if this worked like that, it would save us hours of coordination.' Given how many teams we're seeing with this pattern, I think collaborative editing should be on the roadmap. (muy frustrante para el participante)"
+    ],
+    "related_backlog_items": {
+      "shipped": [
+        {
+          "feature_id": "FEAT-081",
+          "title": "SSO and SAML 2.0 federation",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        },
+        {
+          "feature_id": "FEAT-086",
+          "title": "Salesforce bi-directional sync",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        },
+        {
+          "feature_id": "FEAT-091",
+          "title": "Slack workspace notifications",
+          "status": "shipped",
+          "score": null,
+          "match_basis": "area"
+        }
+      ],
+      "planned": [
+        {
+          "feature_id": "FEAT-083",
+          "title": "Microsoft Teams integration",
+          "status": "planned",
+          "score": null,
+          "match_basis": "area"
+        }
+      ]
+    },
+    "matched_backlog_from_requests": [
+      {
+        "feature_id": "FEAT-083",
+        "title": "Microsoft Teams integration",
+        "status": "planned",
+        "score": 0.022,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-089",
+        "title": "Team-based access control and workspaces",
+        "status": "in_progress",
+        "score": 0.021,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-090",
+        "title": "SFTP scheduled imports",
+        "status": "shipped",
+        "score": 0.011,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-086",
+        "title": "Salesforce bi-directional sync",
+        "status": "shipped",
+        "score": 0.011,
+        "match_basis": "token_overlap"
+      },
+      {
+        "feature_id": "FEAT-088",
+        "title": "Incremental and delta import mode",
+        "status": "in_progress",
+        "score": 0.011,
+        "match_basis": "token_overlap"
+      }
+    ],
+    "gaps": [
+      "Recurring feature requests have weak/no alignment with existing backlog items (possible roadmap gap)."
+    ]
+  }
+]
